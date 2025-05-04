@@ -11,13 +11,13 @@ Welcome to my coding practice hub! This repository is where I solve exercises, i
 
 ## 🗂 Repository Structure
 
-├── Python/ # Python exercises & projects
-│ ├── exercises/ # Coding challenges 
-│ └── projects/ # Mini-projects 
-├── C/ # Low-level and algorithmic practice
-├── Java/ # OOP and Java-specific concepts
-├── JavaScript/ # Web-focused scripts and apps
-├── PHP/ # Server-side scripting practice
+**├── Python/ # Python exercises & projects**
+**│ ├── exercises/ # Coding challenges**
+**│ └── projects/ # Mini-projects** 
+**├── C/ # Low-level and algorithmic practice**
+**├── Java/ # OOP and Java-specific concepts**
+**├── JavaScript/ # Web-focused scripts and apps**
+**├── PHP/ # Server-side scripting practice**
 
 
 ## � Goals
