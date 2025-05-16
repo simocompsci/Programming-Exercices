@@ -6,6 +6,7 @@ use App\Http\Requests\StoreStagiaireRequest;
 use App\Http\Requests\UpdateStagiaireRequest;
 use App\Models\Stagiaire;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StagiaireController extends Controller
 {
@@ -31,12 +32,7 @@ class StagiaireController extends Controller
      */
     public function store(StoreStagiaireRequest $request)
     {
-        Stagiaire::create([
-            'nom' => $request->nom,
-            'prenom' => $request->prenom,
-            'age' => $request->age,
-            'email' => $request->email,
-        ]);
+        DB::table('stagiaires')->insert($request->validated());
         return redirect()->route('list')->with('success', 'Stagiaire ajouté avec succès');
     }
 
