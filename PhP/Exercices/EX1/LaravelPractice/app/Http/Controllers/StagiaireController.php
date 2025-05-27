@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreStagiaireRequest;
 use App\Http\Requests\UpdateStagiaireRequest;
 use App\Models\Stagiaire;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,6 +17,7 @@ class StagiaireController extends Controller
     public function index()
     {
         //$stagiaires = Stagiaire::all();
+        $stagiaires = DB::table('stagiaires')->get();
         return view('stagiaire.index');
     }
 
@@ -32,7 +34,15 @@ class StagiaireController extends Controller
      */
     public function store(StoreStagiaireRequest $request)
     {
-        DB::table('stagiaires')->insert($request->validated());
+        $validated = $request->validate([
+            'nom' => 'required|string|max:30|unique:stagiaires',
+            'prenom' => 'required|string|max:30|unique:stagiaires',
+            'age' => 'required|integer|min:17|max:30',
+            'email' => 'required|string|unique:stagiaires',
+
+        ]);
+        Stagiaire::create($validated);
+        //DB::table('stagiaires')->insert($request->validated());
         return redirect()->route('list')->with('success', 'Stagiaire ajouté avec succès');
     }
 
@@ -55,21 +65,29 @@ class StagiaireController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateStagiaireRequest $request, Stagiaire $stagiaire)
+    public function update(UpdateStagiaireRequest $request, int $id)
     {
+        $stagiaire = Stagiaire::find($id);
+        $request->validate([
+            'nom' => 'required|string|max:30',
+            'prenom' => 'required|string|max:30',
+            'age' => 'required|integer|min:17|max:30',
+            'email' => 'required|string|max:255',
+        ]);
+        $stagiaire->update($request->all());
 
-        $validated = $request->validated();
-
-        $stagiaire->update($validated);
+        //$validated = $request->validated();
+        //$stagiaire->update($validated);
         return redirect()->route('list')->with('success', 'Stagiaire modifier avec succès');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Stagiaire $stagiaire)
+    public function destroy(int $id)
     {
-        $stagiaire->delete();
+        Stagiaire::destroy($id);
+        //$stagiaire->delete();
         return redirect()->route('list')->with('success', 'Stagiaire supprimer avec succès');
     }
 

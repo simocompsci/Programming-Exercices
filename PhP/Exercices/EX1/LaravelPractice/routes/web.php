@@ -16,7 +16,6 @@ Route::get('/OneMethode' , [BaseController::class , 'OneMethode']);
 Route::get('/invoke' , InvokeController::class);
 Route::resource('test', RessourceController::class);
 
-
 Route::resource('stagiaire', StagiaireController::class);
 Route::get('/list', [StagiaireController::class , 'list'])->name('list');
 Route::get('/truncate', [StagiaireController::class , 'truncate'])->name('truncate');
