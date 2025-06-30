@@ -92,17 +92,36 @@ public class HelloWorld {
 
 
         // in this chapter we will talk about printf
-        String name = "spongbob";
-        int age = 34;
-        double salary = 2222.506666;
-        char gpa = 'A';
-        boolean isEmployed = true;
+        // String name = "spongbob";
+        // int age = 34;
+        // double salary = 2222.506666;
+        // char gpa = 'A';
+        // boolean isEmployed = true;
 
-        System.out.printf("helllllllllllo %s \n" , name);
-        System.out.printf("your age is :  %d \n" , age);
-        System.out.printf("your salary is %.1f \n" , salary);
-        System.out.printf("your gpa is  %c \n" , gpa);
-        System.out.printf("is spongbob employed , %b \n" , isEmployed);
+        // System.out.printf("helllllllllllo %s \n" , name);
+        // System.out.printf("your age is :  %d \n" , age);
+        // System.out.printf("your salary is %.1f \n" , salary);
+        // System.out.printf("your gpa is  %c \n" , gpa);
+        // System.out.printf("is spongbob employed , %b \n" , isEmployed);
+
+        // double num1;
+        // double num2;
+
+        // Scanner scanner = new Scanner(System.in);
+        // System.out.print("Give me a number between 0 and 1 : ");
+        // num1 = scanner.nextDouble();
+        // System.out.print("Give me a second number between 0 and 1 : ");
+        // num2 = scanner.nextDouble();
+
+        // if ( (num1 < 1 && num1 > 0) && (num2 < 1 && num2 > 0)) {
+        //     System.out.print(true);
+        // }
+        // else{
+        //     System.out.println(false);
+        // }
+
+
+        // scanner.close();
 
 
     }
