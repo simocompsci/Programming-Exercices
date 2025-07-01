@@ -123,6 +123,10 @@ public class HelloWorld {
 
         // scanner.close();
 
+        String name = "spongbob";
+        int length = name.length();
+        System.out.println("the length of the string is " + length);
+
 
     }
 }
