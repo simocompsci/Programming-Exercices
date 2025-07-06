@@ -1,20 +1,38 @@
 
 public class HelloWorld {
-    
+
     public static void main(String[] args) {
-        
+        // 2D arrays = An array where each element is an array useful for storing a matrix of data
+
+        String[] fastfood = {"pizza" , "lasagna" , "spagetti"};
+        String[] vegetables = {"carrots" , "potattos" , "tomattos"};
+        String[] fruits = {"apple" , "orange" , "bannana"};
+
+        String[][] groceries = {
+            fastfood,
+            vegetables,
+            fruits,
+        };
+           
+        // groceries[0][0] = "hello";
+
+        for (String[] foods : groceries) {
+            System.out.print("food to get :");
+            for (Object food : foods) {
+                System.out.print(food + " ");
+            }
+            System.out.println();
+        }
+
+     
         
     }
 
-
-    
-    
     // int age = 20;
     // double gpa = 3.8;
     // char grade = 'A';
     // boolean isStudent = true;
     // String name = "mohammed";
-
     // System.out.print("hello world\n");
     // System.out.print("i like bodybuilding!\n");
     // System.out.println("my age is " + age + " and i got a " +gpa + " gpa in my cs
@@ -140,31 +158,104 @@ public class HelloWorld {
     //     }
     //     System.out.println();
     // }
-
     // Methods or functions AND There is a type of methods called Overloaded Methods: these are the functions that share the 
     // same name but contains different Parameters wich gives them different signature
-
     // public static void main(String[] args) {
     //     
     //     HappyBirthday("mohammed" , 21);
-
     //     int result = Factorial(5);
     //     System.out.println(result);
-        
     // }
     // static void HappyBirthday(String name, int age) {
     //     System.out.printf("Happy birthday to you %s \n",  name);
     //     System.out.printf("Happy birthday to you %s \n", name);
     //     System.out.printf("you are now %d years old \n", age);
     // }
-
     // static int Factorial(int number) {
     //     int facto = 1;
     //     for (int i = 1; i <= number; i++) {
     //          facto = facto * i;
-             
     //     }
     //     return  facto;
     // }
+    // Arrays
+    // String[] Fruits = {"bannana" ,"apple" ,"orange" ,"cocunut" ,"bannana" };
+    // Fruits[2] = "orange"; to change the value of a specific element in the array 
+    // System.out.println(Fruits);  when we print an array we get a memory address because its referenced datatype
+    // System.out.println(Fruits[2]);
+    // for (int i = 0; i < Fruits.length; i++) {
+    //     System.out.println(Fruits[i]);
+    // }
+    /* we use these array methods before the lines of code we want to display the result because we cant 
+        store these in variables */
+    // Arrays.sort(Fruits); to sort an array
+    // Arrays.fill(Fruits, "is good"); to change all the values within our array
+    // for (String elem : Fruits) { // this is an enhanced array like (for each) in javascript
+    //     System.out.println(elem);
+    // }
+    // This code is to enter user input into an array
+    // String[] Foods = new String[8]; // we create an empty array that can store 8 elements in the memory
+    // String goodies;
+    // Scanner scanner = new Scanner(System.in);
+    // for (int i = 0; i < Foods.length; i++) {
+    //     System.out.print("\nPlease enter a value to add to the array: ");
+    //     goodies = scanner.next();
+    //     Foods[i] = goodies;
+    // }
+    // System.out.printf("the length of the array is : %d \n" , Foods.length);
+    // for (String food : Foods) {
+    //     System.out.println(food);
+    // }
+    // scanner.close(); 
+    // this is linear search to search the elements of an array
+    // int[] numbers = {1, 9, 8, 6, 7, 5, 2, 4};
+    // int target = 2;
+    // String target2 = "zinfandel";
+    // boolean found = false;
+    // String[] words = {
+    //     "apple", "banana", "cherry", "date", "elderberry", "fig", "grape",
+    //     "honeydew", "kiwi", "lemon", "mango", "nectarine", "orange", "papaya",
+    //     "quince", "raspberry", "strawberry", "tangerine", "ugli", "vanilla",
+    //     "watermelon", "xigua", "yam", "zucchini", "apricot", "blackberry",
+    //     "cantaloupe", "dragonfruit", "eggplant", "feijoa", "guava", "hackberry",
+    //     "imbe", "jackfruit", "kumquat", "lime", "mulberry", "navel", "olive",
+    //     "peach", "quenepa", "rambutan", "soursop", "tomato", "uva", "voavanga",
+    //     "wolfberry", "ximenia", "yuzu", "zinfandel"
+    // };
+    // for (int num : numbers) {
+    //     if (num == target) {    
+    //         System.out.println("You have fond your target : " + target);
+    //         found = true;
+    //         break;
+    //     }
+    // }
+    // for (int i = 0; i < words.length; i++) {
+    //     if(target2.equals(words[i])) {
+    //         System.out.println("You have found your taget at the index : " + i);
+    //         break;
+    //     }
+    //     if (!found) {
+    //         System.out.println("Your target doesnt exist in the array");
+    //     }
+    // }
 
+    /* VarArgs (variable arguments) in Java these are used in methods to let them accept any amout of arguments without the need to create overloaded metthods*/
+
+    // System.out.println(add(1, 5, 2, 4, 8));
+    // System.out.println(average(15, 15.2, 17, 33.5));
+
+    // static int add(int... numbers){
+    //     int sum = 0;
+    //     for (int num  : numbers) {
+    //         sum += num;
+    //     }
+    //     return sum;
+    // }
+    // static double average(double ... grades){
+    //     double sum = 0;
+    //     for (double num : grades) {
+    //         sum += num;
+    //     }
+    //     return sum/grades.length;
+    // }
 }
