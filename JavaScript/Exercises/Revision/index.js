@@ -52,7 +52,7 @@
 // alert( alert(1) || 2 || alert(3) );
 
 
-const hobbies = ["football" , "swimming" , "dancing"];
+// const hobbies = ["football" , "swimming" , "dancing"];
 
 // for(let i = 0 ; i <= hobbies.length ; i++){
 //     console.log(hobbies[i] + "is one of the best things i like to do")
@@ -133,3 +133,77 @@ we break from the one that has a label*/
 // showPrimes(60);
 
 
+// how we write objects
+const object1 = {
+    id : 1,
+    name : "hassan",
+    job : "software engineer"
+}
+
+// we can create objects this way too
+// put in mind we can use variable names like (var , let for , return , as a variable name ) but only inside objects
+function makeUser(name, age) {
+  return {
+    // name : name,
+    // age : age,
+    name, // same as name: name
+    age,  // same as age: age
+  };
+}
+
+
+// let user1 = makeUser("mohammed" , 52);
+// console.log(user1);
+// console.log("age" in user1); // this in operatoe to check if a property exists within an object
+
+// for (let element in user1){ // this loop is like a for each loop (used for arrays) it executes some code for each element in the
+//                             // object(for in is used for objects)
+//     console.log(element);
+//     console.log(user1[element]);
+// }
+
+/* when we loop over objects we only get the result sorted ASC we we have integers as keys but strings are sorted by order of creation*/
+// let codes = {
+//   "49": "Germany",
+//   "41": "Switzerland",
+//   "44": "Great Britain",
+//   // ..,
+//   "1": "USA"
+// };
+
+// for (let code in codes) {
+//   alert(code); // 1, 41, 44, 49
+// }
+
+// let user1 = {
+//     name : "mohammed",
+//     age: 24,
+//     sayfuck : function(){
+//         alert(`My name is ${this.name} and i tell you to fuck off`);
+//     }
+// }
+
+// user1.sayHi = function(){
+//     console.log(`hello my name is ${user1.name}`)
+// }
+
+// user1.sayHi();
+// user1.sayfuck();
+
+let ladder = {
+  step: 0,
+  up() {
+    this.step++;
+    return this;
+  },
+  down() {
+    this.step--;
+    return this;
+  },
+  showStep: function() { // shows the current step
+    alert( this.step );
+    return this;
+  }
+};
+
+ladder.up().up().down().showStep().down().showStep();
