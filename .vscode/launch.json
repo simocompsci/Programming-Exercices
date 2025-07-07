@@ -5,6 +5,20 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "RockPaperSissors",
+            "request": "launch",
+            "mainClass": "RockPaperSissors",
+            "projectName": "Programming Exercices_d6038d75"
+        },
+        {
+            "type": "java",
+            "name": "QuizGame",
+            "request": "launch",
+            "mainClass": "QuizGame",
+            "projectName": "Programming Exercices_d6038d75"
+        },
+        {
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
