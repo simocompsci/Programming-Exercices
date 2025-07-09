@@ -215,9 +215,9 @@ async function fetchData (){
   try {
     const response = await fetch("https://jsonplaceholder.typicode.com/posts/1");
     data = await response.json();
-    console.log(data);
+    document.writeln(JSON.stringify(data.title));
   } catch (error) {
-    throw new Error("Error" , error);
+    throw new Error("Error" , error.response.message);
     
   }
 

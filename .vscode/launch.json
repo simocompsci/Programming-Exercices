@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "AlternativeStrings",
+            "request": "launch",
+            "mainClass": "AlternativeStrings",
+            "projectName": "Programming Exercices_d6038d75"
+        },
+        {
+            "type": "java",
             "name": "RockPaperSissors",
             "request": "launch",
             "mainClass": "RockPaperSissors",
