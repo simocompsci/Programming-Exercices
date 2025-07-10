@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "OOPLearning",
+            "request": "launch",
+            "mainClass": "OOPLearning",
+            "projectName": "Programming Exercices_d6038d75"
+        },
+        {
+            "type": "java",
+            "name": "GreatestCommonDivisor",
+            "request": "launch",
+            "mainClass": "GreatestCommonDivisor",
+            "projectName": "Programming Exercices_d6038d75"
+        },
+        {
+            "type": "java",
             "name": "AlternativeStrings",
             "request": "launch",
             "mainClass": "AlternativeStrings",
