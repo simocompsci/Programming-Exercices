@@ -210,19 +210,43 @@ function makeUser(name, age) {
 // /* in this code each function in the object returns the object through  
 // this keyword wich enables method chaining*/
 
-let data;
-async function fetchData (){
-  try {
-    const response = await fetch("https://jsonplaceholder.typicode.com/posts/1");
-    data = await response.json();
-    document.writeln(JSON.stringify(data.title));
-  } catch (error) {
-    throw new Error("Error" , error.response.message);
+// let data;
+// async function fetchData (){
+//   try {
+//     const response = await fetch("https://jsonplaceholder.typicode.com/posts/1");
+//     data = await response.json();
+//     document.writeln(JSON.stringify(data.title));
+//   } catch (error) {
+//     throw new Error("Error" , error.response.message);
     
-  }
+//   }
 
+// }
+// fetchData();
+
+// function disemvowel(str) {
+//  const vowels = ['A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u'];
+//   for(i = 0 ; i< str.length ; i++){
+//     for(j = 0 ; j< vowels.length ; j++){
+//       if(str[i] == vowels[j] || str[i] == "\n"){
+//         str = str.replace(str[i], "");
+//       }
+      
+//     }
+//   }
+//   return str;
+// }
+
+// console.log(disemvowel("No offense but,\nYour writing is among the worst I've ever read"));
+
+var isSquare = function(n){
+  let roundedsqrt = Math.round(Math.sqrt(n));
+  if (Math.pow(roundedsqrt , 2) == n) {
+    return true;
+  }
+  return false;
 }
-fetchData();
+console.log(isSquare(4));
 
 
 
