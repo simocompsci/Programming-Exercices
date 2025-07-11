@@ -93,7 +93,7 @@ we break from the one that has a label*/
 // switch (day) {
 //     case "Monday":
 //         console.log("i hate my life");
-        
+
 //         break;
 //     case "Friday":
 //         console.log("i love my life");
@@ -135,9 +135,9 @@ we break from the one that has a label*/
 
 // how we write objects
 const object1 = {
-    id : 1,
-    name : "hassan",
-    job : "software engineer"
+  id: 1,
+  name: "hassan",
+  job: "software engineer"
 }
 
 // we can create objects this way too
@@ -218,7 +218,7 @@ function makeUser(name, age) {
 //     document.writeln(JSON.stringify(data.title));
 //   } catch (error) {
 //     throw new Error("Error" , error.response.message);
-    
+
 //   }
 
 // }
@@ -231,7 +231,7 @@ function makeUser(name, age) {
 //       if(str[i] == vowels[j] || str[i] == "\n"){
 //         str = str.replace(str[i], "");
 //       }
-      
+
 //     }
 //   }
 //   return str;
@@ -239,15 +239,29 @@ function makeUser(name, age) {
 
 // console.log(disemvowel("No offense but,\nYour writing is among the worst I've ever read"));
 
-var isSquare = function(n){
-  let roundedsqrt = Math.round(Math.sqrt(n));
-  if (Math.pow(roundedsqrt , 2) == n) {
-    return true;
+// var isSquare = function(n){
+//   let roundedsqrt = Math.round(Math.sqrt(n));
+//   if (Math.pow(roundedsqrt , 2) == n) {
+//     return true;
+//   }
+//   return false;
+// }
+// console.log(isSquare(4));
+
+var uniqueInOrder = function (iterable) {
+  //your code here - remember iterable can be a string or an array
+  let resultedarr = [];
+  for (let i = 0; i < iterable.length; i++) {
+    if (iterable[i] !== iterable[i + 1]) {
+        resultedarr.push(iterable[i]);
+    }
   }
-  return false;
+  return resultedarr;
 }
-console.log(isSquare(4));
+
+console.log(uniqueInOrder("AAAABBBCCDAABBB"));
+console.log(uniqueInOrder([1,2,2,3,3]));
+console.log(uniqueInOrder('ABBCcAD'));
 
 
 
-                                                      
