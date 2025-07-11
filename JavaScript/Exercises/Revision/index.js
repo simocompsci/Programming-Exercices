@@ -248,20 +248,49 @@ function makeUser(name, age) {
 // }
 // console.log(isSquare(4));
 
-var uniqueInOrder = function (iterable) {
-  //your code here - remember iterable can be a string or an array
-  let resultedarr = [];
-  for (let i = 0; i < iterable.length; i++) {
-    if (iterable[i] !== iterable[i + 1]) {
-        resultedarr.push(iterable[i]);
+// var uniqueInOrder = function (iterable) {
+//   //your code here - remember iterable can be a string or an array
+//   let resultedarr = [];
+//   for (let i = 0; i < iterable.length; i++) {
+//     if (iterable[i] !== iterable[i + 1]) {
+//         resultedarr.push(iterable[i]);
+//     }
+//   }
+//   return resultedarr;
+// }
+
+// console.log(uniqueInOrder("AAAABBBCCDAABBB"));
+// console.log(uniqueInOrder([1,2,2,3,3]));
+// console.log(uniqueInOrder('ABBCcAD'));
+
+// function getMiddle(s) {
+//   if (s.length % 2 == 0) {
+//     return s[(s.length / 2)-1] + s[(s.length / 2)];
+//   }
+//   return s[Math.floor(s.length / 2)];
+// }
+
+
+// console.log(getMiddle("middle"));
+
+
+function solution(str) {
+  let pairs = [];
+
+
+  if (str.length % 2 == 0) {
+    for (let i = 0; i < str.length; i += 2) {
+      pairs.push(str.slice(i, i + 2));
     }
   }
-  return resultedarr;
+  else {
+    str = str + '_';
+    for (let i = 0; i < str.length; i += 2) {
+      pairs.push(str.slice(i, i + 2));
+    }
+  }
+
+  return pairs;
 }
 
-console.log(uniqueInOrder("AAAABBBCCDAABBB"));
-console.log(uniqueInOrder([1,2,2,3,3]));
-console.log(uniqueInOrder('ABBCcAD'));
-
-
-
+console.log(solution('abc'))
