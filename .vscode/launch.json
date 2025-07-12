@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "SimpleHTTPServer",
+            "request": "launch",
+            "mainClass": "SimpleHTTPServer",
+            "projectName": "Programming Exercices_d6038d75"
+        },
+        {
+            "type": "java",
+            "name": "SimpleHTTPServer",
+            "request": "launch",
+            "mainClass": "HTTPserver.SimpleHTTPServer",
+            "projectName": "Programming Exercices_d6038d75"
+        },
+        {
+            "type": "java",
             "name": "OOPLearning",
             "request": "launch",
             "mainClass": "OOPLearning",
