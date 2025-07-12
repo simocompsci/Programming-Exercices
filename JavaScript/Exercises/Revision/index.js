@@ -274,23 +274,61 @@ function makeUser(name, age) {
 // console.log(getMiddle("middle"));
 
 
-function solution(str) {
-  let pairs = [];
+// function solution(str) {
+//   let pairs = [];
 
 
-  if (str.length % 2 == 0) {
-    for (let i = 0; i < str.length; i += 2) {
-      pairs.push(str.slice(i, i + 2));
+//   if (str.length % 2 == 0) {
+//     for (let i = 0; i < str.length; i += 2) {
+//       pairs.push(str.slice(i, i + 2));
+//     }
+//   }
+//   else {
+//     str = str + '_';
+//     for (let i = 0; i < str.length; i += 2) {
+//       pairs.push(str.slice(i, i + 2));
+//     }
+//   }
+
+//   return pairs;
+// }
+
+// console.log(solution('abc'))
+
+// function openOrSenior(data) {
+//   let output = [];
+//   for (let i = 0; i < data.length; i++) {
+//     if (data[i][0] >= 55 && data[i][1] > 7) {
+//       output.push("Senior");
+//     }
+//     else {
+//       output.push("Open");
+      
+//     }
+
+//   }
+//   return output;
+// }
+
+// console.log(openOrSenior([[18, 20], [45, 2], [61, 12], [37, 6], [21, 21], [78, 9]]));
+
+function dnaStrand(dna){
+  let result = "";
+  for (let i = 0; i < dna.length; i++) {
+    if (dna[i] == "A") {
+      result += "T";
+    } else if (dna[i] == "T") {
+      result += "A";
+    } else if (dna[i] == "C") {
+      result += "G";
+    } else if (dna[i] == "G") {
+      result += "C";
     }
+  
   }
-  else {
-    str = str + '_';
-    for (let i = 0; i < str.length; i += 2) {
-      pairs.push(str.slice(i, i + 2));
-    }
-  }
-
-  return pairs;
+  return result;
 }
 
-console.log(solution('abc'))
+console.log(dnaStrand("ATGCTAGCTAGCTAGCTAGCTA"));
+
+
