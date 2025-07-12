@@ -13,6 +13,30 @@ public class Employee {
         this.JobTitle = JobTitle;
     }
 
+    String getName(){
+        return this.Name;
+    }
+
+    String getJobTitle(){
+        return this.JobTitle;
+    }
+
+    int  getSalary(){
+        return this.Salary;
+    }
+
+    void setName(String Name){
+        this.Name = Name;
+    }
+
+    void setJobTitle(String JobTitle){
+        this.JobTitle = JobTitle;
+    }
+
+    void setSalary(int Salary){
+        this.Salary = Salary;
+    }
+
     
     
 

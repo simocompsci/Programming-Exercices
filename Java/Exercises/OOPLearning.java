@@ -41,22 +41,36 @@ public class OOPLearning {
         // fish2.hunt();
 
         // This is how polymorphism works
-        Organism organism1 = new Organism();
-        Animal animal1 = new Animal("other animals");
-        Human human1 = new Human("vegetables and meat");
-        Plant plant1 = new Plant("minerals");
-        organism1.developpement();
-        animal1.developpement();
-        human1.developpement();
-        plant1.developpement();
+        // Organism organism1 = new Organism();
+        // Animal animal1 = new Animal("other animals");
+        // Human human1 = new Human("vegetables and meat");
+        // Plant plant1 = new Plant("minerals");
+        // organism1.developpement();
+        // animal1.developpement();
+        // human1.developpement();
+        // plant1.developpement();
 
         // if we want t create an array of objects with polymorphism we define the type as the mother class
         // then we loop over them as always
 
-        Organism[] organisms = {organism1 , animal1 , plant1 , human1};
-        for(Organism organism : organisms){
-            organism.developpement();
-        }
+        // Organism[] organisms = {organism1 , animal1 , plant1 , human1};
+        // for(Organism organism : organisms){
+        //     organism.developpement();
+        // }
+
+        Employee employee = new Employee("mohammed", "developper", 100000);
+        // System.out.println(employee.Name); // we we write this code without getters it says its not visible because it has 
+        // private access
+        System.out.println(employee.getName());
+        System.out.println(employee.getJobTitle()); // Now when to access the attributes we call the get... functions
+        System.out.println(employee.getSalary());
+        employee.setName("hassan");
+        employee.setJobTitle("devops engineer");
+        employee.setSalary(500000);
+        System.out.println(employee.getName());
+        System.out.println(employee.getJobTitle()); // Now when to access the attributes we call the get... functions
+        System.out.println(employee.getSalary()); // its the same object but with the use of setters we could change the attributes 
+                                                  // values
 
     }
 }
