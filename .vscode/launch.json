@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "SlotMachine",
+            "request": "launch",
+            "mainClass": "SlotMachine",
+            "projectName": "Programming Exercices_d6038d75"
+        },
+        {
+            "type": "java",
             "name": "SimpleHTTPServer",
             "request": "launch",
             "mainClass": "SimpleHTTPServer",

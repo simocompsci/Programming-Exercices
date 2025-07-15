@@ -303,7 +303,7 @@ function makeUser(name, age) {
 //     }
 //     else {
 //       output.push("Open");
-      
+
 //     }
 
 //   }
@@ -312,23 +312,23 @@ function makeUser(name, age) {
 
 // console.log(openOrSenior([[18, 20], [45, 2], [61, 12], [37, 6], [21, 21], [78, 9]]));
 
-function dnaStrand(dna){
-  let result = "";
-  for (let i = 0; i < dna.length; i++) {
-    if (dna[i] == "A") {
-      result += "T";
-    } else if (dna[i] == "T") {
-      result += "A";
-    } else if (dna[i] == "C") {
-      result += "G";
-    } else if (dna[i] == "G") {
-      result += "C";
-    }
-  
-  }
-  return result;
-}
+// function dnaStrand(dna){
+//   let result = "";
+//   for (let i = 0; i < dna.length; i++) {
+//     if (dna[i] == "A") {
+//       result += "T";
+//     } else if (dna[i] == "T") {
+//       result += "A";
+//     } else if (dna[i] == "C") {
+//       result += "G";
+//     } else if (dna[i] == "G") {
+//       result += "C";
+//     }
 
-console.log(dnaStrand("ATGCTAGCTAGCTAGCTAGCTA"));
+//   }
+//   return result;
+// }
+
+// console.log(dnaStrand("ATGCTAGCTAGCTAGCTAGCTA"));
 
 
