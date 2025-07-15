@@ -332,11 +332,21 @@ function makeUser(name, age) {
 // console.log(dnaStrand("ATGCTAGCTAGCTAGCTAGCTA"));
 
 
-function findNextSquare(sq) {
-  // Return the next square if sq is a perfect square, -1 otherwise
-  nextsr = (Math.sqrt(sq)) % 1 === 0 ? Math.pow((Math.sqrt(sq) +1) , 2) : false;
-  return nextsr;
+// function findNextSquare(sq) {
+//   // Return the next square if sq is a perfect square, -1 otherwise
+//   nextsr = (Math.sqrt(sq)) % 1 === 0 ? Math.pow((Math.sqrt(sq) +1) , 2) : false;
+//   return nextsr;
   
+// }
+
+// console.log(findNextSquare(11))
+
+function count(string) {
+  const result = {};
+  for (const char of string) {
+    result[char] = (result[char] || 0) + 1;
+  }
+  return result;
 }
 
-console.log(findNextSquare(11))
+console.log(count("hahahahhgdgyyy"))
