@@ -332,3 +332,11 @@ function makeUser(name, age) {
 // console.log(dnaStrand("ATGCTAGCTAGCTAGCTAGCTA"));
 
 
+function findNextSquare(sq) {
+  // Return the next square if sq is a perfect square, -1 otherwise
+  nextsr = (Math.sqrt(sq)) % 1 === 0 ? Math.pow((Math.sqrt(sq) +1) , 2) : false;
+  return nextsr;
+  
+}
+
+console.log(findNextSquare(11))
