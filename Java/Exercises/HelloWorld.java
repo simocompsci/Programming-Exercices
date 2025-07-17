@@ -1,30 +1,9 @@
 
+
+
 public class HelloWorld {
 
     public static void main(String[] args) {
-        // 2D arrays = An array where each element is an array useful for storing a matrix of data
-
-        String[] fastfood = {"pizza" , "lasagna" , "spagetti"};
-        String[] vegetables = {"carrots" , "potattos" , "tomattos"};
-        String[] fruits = {"apple" , "orange" , "bannana"};
-
-        String[][] groceries = {
-            fastfood,
-            vegetables,
-            fruits,
-        };
-           
-        // groceries[0][0] = "hello";
-
-        for (String[] foods : groceries) {
-            System.out.print("food to get :");
-            for (Object food : foods) {
-                System.out.print(food + " ");
-            }
-            System.out.println();
-        }
-
-     
         
     }
 
@@ -240,10 +219,8 @@ public class HelloWorld {
     // }
 
     /* VarArgs (variable arguments) in Java these are used in methods to let them accept any amout of arguments without the need to create overloaded metthods*/
-
     // System.out.println(add(1, 5, 2, 4, 8));
     // System.out.println(average(15, 15.2, 17, 33.5));
-
     // static int add(int... numbers){
     //     int sum = 0;
     //     for (int num  : numbers) {
@@ -258,4 +235,87 @@ public class HelloWorld {
     //     }
     //     return sum/grades.length;
     // }
+    // 2D arrays = An array where each element is an array useful for storing a matrix of data
+    // String[] fastfood = {"pizza" , "lasagna" , "spagetti"};
+    // String[] vegetables = {"carrots" , "potattos" , "tomattos"};
+    // String[] fruits = {"apple" , "orange" , "bannana"};
+    // String[][] groceries = {
+    //     fastfood,
+    //     vegetables,
+    //     fruits,
+    // };
+    // // groceries[0][0] = "hello";
+    // for (String[] foods : groceries) {
+    //     System.out.print("food to get :");
+    //     for (Object food : foods) {
+    //         System.out.print(food + " ");
+    //     }
+    //     System.out.println();
+    // }
+    // Array Lists : a resizeable array that stores objects or primitives (autoboxing).
+    //              Arrays are fixed in size , but arraylists can change 
+
+    // ArrayList<Integer> list = new ArrayList<>();
+        // list.add(3);
+        // list.add(4);
+        // list.add(5);
+
+        // System.out.println(list);
+        
+
+        // ArrayList<String> fruit = new ArrayList<>();
+        // fruit.add("orange");
+        // fruit.add("banana");
+        // fruit.add("raisins");
+
+        // fruit.remove(2);
+        // Collections.sort(fruit);
+
+        // for (String item : fruit) {
+        //     System.out.printf("the %s is good for your health \n" , item);
+        // }
+
+        // System.out.println(fruit);
+        // there is a lot of arraylist methods , when you need them you can google them
+
+        // Scanner scanner = new Scanner(System.in);
+        // ArrayList<String> groceries = new ArrayList<>();
+        // String item;
+        // System.out.print("Enter the number of groceries you want :");
+        // int numItems = scanner.nextInt();
+        // int i = 1;
+        // do { 
+        //     System.out.print("Enter the item # " + i + ":");
+        //     item = scanner.next();
+        //     groceries.add(item);
+        //     i++;
+        // } while (i <= numItems);
+        
+        // scanner.close();
+
+        // System.out.println(groceries);
+
+
+        // Exeption = An event that interrupts the normal flow of a programm (dividing by 0 , file not found...)
+        //            Surround any dangerous code with a try{} block try{} , catch{} , finally{}
+        //            To handle an exeption we copy its name (after running the programm or serching for it)
+        //            then write the code that will treat it in the catch block , we can use as many catch as we want
+        
+
+        // Scanner scanner = new Scanner(System.in);
+
+       
+        // try {
+        //     System.out.print("Enter a number : ");
+        //     int num = scanner.nextInt();
+        //     System.out.println(num);
+        // } catch (InputMismatchException e) {
+        //     System.out.println("You should enter a number idiot");
+        // }
+        // finally{
+        //     scanner.close();
+        //     System.out.println("the finnaly block always executes");
+        //     // finally is often used for clean up of the programm 
+        // }
+        
 }
