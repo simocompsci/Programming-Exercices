@@ -1,9 +1,49 @@
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+
 
 
 public class HelloWorld {
 
     public static void main(String[] args) {
+        // In this part we will be  working with DATES && TIMES using java
+        // (LocalDate , LocalTime , LocalDateTime , UTC Timestamps)
+
+        // LocalDate date = LocalDate.now(); // gives the day in this format (year-mounth-day)
+        // LocalTime time = LocalTime.now(); // gives the time  in this format (hour:min:seconds)
+        // LocalDateTime dateTime = LocalDateTime.now(); // gives the date/time  in this format (year-mounth-dayThour:min:seconds)
+        // Instant instant = Instant.now(); // gives the date/time in UTC time 
+
+        // Custom format for date/time
+        LocalDateTime dateTime1 = LocalDateTime.now();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        String newdate = formatter.format(dateTime1);
+
+        LocalDate date1 = LocalDate.of(2024, 12, 25); // this is to define a date of our choice
+        LocalDate date2 = LocalDate.of(2025, 06, 30);
+
+        if (date1.isBefore(date2)) {
+            System.out.println(date1 + " is earlier than " + date2);
+            return;
+        } else if (date1.isAfter(date2)) {
+            System.out.println(date1 + " is after  " + date2);
+            return;
+        }
+        System.out.println(date1 + " and " + date2 + " are the same day");
+
+        // System.out.println(date);
+        // System.out.println(time);
+        // System.out.println(dateTime);
+        // System.out.println(instant);
+        // System.out.println(newdate);
+
+        
+
+
         
     }
 
