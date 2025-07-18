@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Kata",
+            "request": "launch",
+            "mainClass": "Kata",
+            "projectName": "Programming Exercices_d6038d75"
+        },
+        {
+            "type": "java",
             "name": "HashMaps",
             "request": "launch",
             "mainClass": "HashMaps",
