@@ -1,39 +1,29 @@
 
-import java.util.Scanner;
-import java.util.Timer;
-import java.util.TimerTask;
-
-
-
-
-
 public class HelloWorld {
 
     public static void main(String[] args) {
+        // Generics  = a concept where you can write a class , interface , or method
+        //             that is compatible with different data types.
+        //             <T , U> type parameter (placeholder that gets replaced with a real type) , and we can have more than one parm
+        //             <String> type argument (specifies the type)
 
-        // This is a small application of the timer and timertask classes in java (countdown programm)
-        int seconds;
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the number of seconds to countdown from : ");
-        seconds = scanner.nextInt();
-        Timer timer = new Timer();
-        TimerTask countdown = new TimerTask() {
-            int count  = seconds;
-            @Override
-            public void run(){
-                System.out.println(count);
-                count--;
-                if (count == 0) {
-                    System.err.println("Fuck off there is no new year for you !!!!");
-                    timer.cancel();
-                }
+        // ArrayList<String> fruits = new ArrayList<>(); // an example of using Generics (<String> type argument)
+        // using the Box class we created we will demonstrate how generics work
+        Box<String> box = new Box<>();
+        box.setItem("bananna");
+        System.out.println(box.getItem());
+        // See we can store any type in our class by using generics
+        Box<Integer> box1 = new Box<>();
+        box1.setItem(300);
+        System.out.println(box1.getItem());
 
-            }
-        };
-        timer.schedule(countdown, 0 , 1000);
-        scanner.close();
+        // Now using multi parameters in the product class
+        Product<String , Integer> product1 = new Product<>();
+        product1.setName("umbrella");
+        product1.setPrice(399);
 
-        
+        System.out.println("the price of the " + product1.getName() + " is " + product1.getPrice());
+
     }
 
     // int age = 20;
@@ -283,137 +273,127 @@ public class HelloWorld {
     // }
     // Array Lists : a resizeable array that stores objects or primitives (autoboxing).
     //              Arrays are fixed in size , but arraylists can change 
-
     // ArrayList<Integer> list = new ArrayList<>();
-        // list.add(3);
-        // list.add(4);
-        // list.add(5);
-
-        // System.out.println(list);
-        
-
-        // ArrayList<String> fruit = new ArrayList<>();
-        // fruit.add("orange");
-        // fruit.add("banana");
-        // fruit.add("raisins");
-
-        // fruit.remove(2);
-        // Collections.sort(fruit);
-
-        // for (String item : fruit) {
-        //     System.out.printf("the %s is good for your health \n" , item);
-        // }
-
-        // System.out.println(fruit);
-        // there is a lot of arraylist methods , when you need them you can google them
-
-        // Scanner scanner = new Scanner(System.in);
-        // ArrayList<String> groceries = new ArrayList<>();
-        // String item;
-        // System.out.print("Enter the number of groceries you want :");
-        // int numItems = scanner.nextInt();
-        // int i = 1;
-        // do { 
-        //     System.out.print("Enter the item # " + i + ":");
-        //     item = scanner.next();
-        //     groceries.add(item);
-        //     i++;
-        // } while (i <= numItems);
-        
-        // scanner.close();
-
-        // System.out.println(groceries);
-
-
-        // Exeption = An event that interrupts the normal flow of a programm (dividing by 0 , file not found...)
-        //            Surround any dangerous code with a try{} block try{} , catch{} , finally{}
-        //            To handle an exeption we copy its name (after running the programm or serching for it)
-        //            then write the code that will treat it in the catch block , we can use as many catch as we want
-        
-
-        // Scanner scanner = new Scanner(System.in);
-
-       
-        // try {
-        //     System.out.print("Enter a number : ");
-        //     int num = scanner.nextInt();
-        //     System.out.println(num);
-        // } catch (InputMismatchException e) {
-        //     System.out.println("You should enter a number idiot");
-        // }
-        // finally{
-        //     scanner.close();
-        //     System.out.println("the finnaly block always executes");
-        //     // finally is often used for clean up of the programm 
-        // }
-        
-
-        // In this part we will be  working with DATES && TIMES using java
-        // (LocalDate , LocalTime , LocalDateTime , UTC Timestamps)
-
-        // LocalDate date = LocalDate.now(); // gives the day in this format (year-mounth-day)
-        // LocalTime time = LocalTime.now(); // gives the time  in this format (hour:min:seconds)
-        // LocalDateTime dateTime = LocalDateTime.now(); // gives the date/time  in this format (year-mounth-dayThour:min:seconds)
-        // Instant instant = Instant.now(); // gives the date/time in UTC time 
-
-        // Custom format for date/time
-        // LocalDateTime dateTime1 = LocalDateTime.now();
-
-        // DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-        // String newdate = formatter.format(dateTime1);
-
-        // LocalDate date1 = LocalDate.of(2024, 12, 25); // this is to define a date of our choice
-        // LocalDate date2 = LocalDate.of(2025, 06, 30);
-
-        // if (date1.isBefore(date2)) {
-        //     System.out.println(date1 + " is earlier than " + date2);
-        //     return;
-        // } else if (date1.isAfter(date2)) {
-        //     System.out.println(date1 + " is after  " + date2);
-        //     return;
-        // }
-        // System.out.println(date1 + " and " + date2 + " are the same day");
-
-        // System.out.println(date);
-        // System.out.println(time);
-        // System.out.println(dateTime);
-        // System.out.println(instant);
-        // System.out.println(newdate);
-
-
-        // Anonymous classes = A class that doesn t have a name . cannaot be reused.
-        //                     Add custom behavior without having to create a new class.
-        //                     We often use them when we are in the case of creating only one object that doesn t have a class
-        //                     Other used for one time uses (Timertask , Runnable , Callback)
-
-        // Dog dog1 = new Dog("scooby"){
-        //     @Override
-        //     void dogName(){
-        //         System.out.println("the dog name is scooby do");
-        //     }
-        // };
-        // dog1.dogName();
-
-        // Timer  = Class that schedules tasks at specific times or periodically 
-        //          Useful for: sending notifications , scheduled updates , repetitive actions
-
-        // TimerTask = Represents the task that will be executed by the timer 
-        //             You will extend the TimerTask class to define your task using annonymous classes
-        //             Create a subclass of timertask and @Override run() 
-
-        // Timer timer = new Timer();
-        // TimerTask task = new TimerTask() {
-        //     int count = 3;
-        //     @Override
-        //     public void  run(){
-        //         System.out.println("the run method is ovveriden");
-        //         count--;
-        //         if(count == 0){
-        //             System.out.println("task complete");
-        //             timer.cancel();
-        //         }
-        //     }
-        // };
-        // //timer.schedule(task, 3000); // takes two arguments the task and the delay in ms
-        // timer.scheduleAtFixedRate(task, 100, 1000); // repeats the task every 1s
+    // list.add(3);
+    // list.add(4);
+    // list.add(5);
+    // System.out.println(list);
+    // ArrayList<String> fruit = new ArrayList<>();
+    // fruit.add("orange");
+    // fruit.add("banana");
+    // fruit.add("raisins");
+    // fruit.remove(2);
+    // Collections.sort(fruit);
+    // for (String item : fruit) {
+    //     System.out.printf("the %s is good for your health \n" , item);
+    // }
+    // System.out.println(fruit);
+    // there is a lot of arraylist methods , when you need them you can google them
+    // Scanner scanner = new Scanner(System.in);
+    // ArrayList<String> groceries = new ArrayList<>();
+    // String item;
+    // System.out.print("Enter the number of groceries you want :");
+    // int numItems = scanner.nextInt();
+    // int i = 1;
+    // do { 
+    //     System.out.print("Enter the item # " + i + ":");
+    //     item = scanner.next();
+    //     groceries.add(item);
+    //     i++;
+    // } while (i <= numItems);
+    // scanner.close();
+    // System.out.println(groceries);
+    // Exeption = An event that interrupts the normal flow of a programm (dividing by 0 , file not found...)
+    //            Surround any dangerous code with a try{} block try{} , catch{} , finally{}
+    //            To handle an exeption we copy its name (after running the programm or serching for it)
+    //            then write the code that will treat it in the catch block , we can use as many catch as we want
+    // Scanner scanner = new Scanner(System.in);
+    // try {
+    //     System.out.print("Enter a number : ");
+    //     int num = scanner.nextInt();
+    //     System.out.println(num);
+    // } catch (InputMismatchException e) {
+    //     System.out.println("You should enter a number idiot");
+    // }
+    // finally{
+    //     scanner.close();
+    //     System.out.println("the finnaly block always executes");
+    //     // finally is often used for clean up of the programm 
+    // }
+    // In this part we will be  working with DATES && TIMES using java
+    // (LocalDate , LocalTime , LocalDateTime , UTC Timestamps)
+    // LocalDate date = LocalDate.now(); // gives the day in this format (year-mounth-day)
+    // LocalTime time = LocalTime.now(); // gives the time  in this format (hour:min:seconds)
+    // LocalDateTime dateTime = LocalDateTime.now(); // gives the date/time  in this format (year-mounth-dayThour:min:seconds)
+    // Instant instant = Instant.now(); // gives the date/time in UTC time 
+    // Custom format for date/time
+    // LocalDateTime dateTime1 = LocalDateTime.now();
+    // DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+    // String newdate = formatter.format(dateTime1);
+    // LocalDate date1 = LocalDate.of(2024, 12, 25); // this is to define a date of our choice
+    // LocalDate date2 = LocalDate.of(2025, 06, 30);
+    // if (date1.isBefore(date2)) {
+    //     System.out.println(date1 + " is earlier than " + date2);
+    //     return;
+    // } else if (date1.isAfter(date2)) {
+    //     System.out.println(date1 + " is after  " + date2);
+    //     return;
+    // }
+    // System.out.println(date1 + " and " + date2 + " are the same day");
+    // System.out.println(date);
+    // System.out.println(time);
+    // System.out.println(dateTime);
+    // System.out.println(instant);
+    // System.out.println(newdate);
+    // Anonymous classes = A class that doesn t have a name . cannaot be reused.
+    //                     Add custom behavior without having to create a new class.
+    //                     We often use them when we are in the case of creating only one object that doesn t have a class
+    //                     Other used for one time uses (Timertask , Runnable , Callback)
+    // Dog dog1 = new Dog("scooby"){
+    //     @Override
+    //     void dogName(){
+    //         System.out.println("the dog name is scooby do");
+    //     }
+    // };
+    // dog1.dogName();
+    // Timer  = Class that schedules tasks at specific times or periodically 
+    //          Useful for: sending notifications , scheduled updates , repetitive actions
+    // TimerTask = Represents the task that will be executed by the timer 
+    //             You will extend the TimerTask class to define your task using annonymous classes
+    //             Create a subclass of timertask and @Override run() 
+    // Timer timer = new Timer();
+    // TimerTask task = new TimerTask() {
+    //     int count = 3;
+    //     @Override
+    //     public void  run(){
+    //         System.out.println("the run method is ovveriden");
+    //         count--;
+    //         if(count == 0){
+    //             System.out.println("task complete");
+    //             timer.cancel();
+    //         }
+    //     }
+    // };
+    // //timer.schedule(task, 3000); // takes two arguments the task and the delay in ms
+    // timer.scheduleAtFixedRate(task, 100, 1000); // repeats the task every 1s
+    // This is a small application of the timer and timertask classes in java (countdown programm)
+    // int seconds;
+    // Scanner scanner = new Scanner(System.in);
+    // System.out.print("Enter the number of seconds to countdown from : ");
+    // seconds = scanner.nextInt();
+    // Timer timer = new Timer();
+    // TimerTask countdown = new TimerTask() {
+    //     int count  = seconds;
+    //     @Override
+    //     public void run(){
+    //         System.out.println(count);
+    //         count--;
+    //         if (count == 0) {
+    //             System.err.println("Fuck off there is no new year for you !!!!");
+    //             timer.cancel();
+    //         }
+    //     }
+    // };
+    // timer.schedule(countdown, 0 , 1000);
+    // scanner.close();
 }
