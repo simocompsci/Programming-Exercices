@@ -3,7 +3,8 @@ public class Kata {
 
     public static void main(String[] args) {
         // System.out.println(whoLikesIt("Alex", "Jacob", "Mark", "Max"));
-        System.out.println(squareDigits(66666));
+        // System.out.println(squareDigits(66666));
+        System.out.println(reverseWords("This is an example!"));
     }
 
     public static String whoLikesIt(String... names) {
@@ -29,15 +30,34 @@ public class Kata {
     }
 
     public static int squareDigits(int n) {
-        String strx = Integer.toString(n);       
-        StringBuilder sb = new StringBuilder();  
+        String strx = Integer.toString(n);
+        StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < strx.length(); i++) {
-            int digit = strx.charAt(i) - '0';  
-            int squared = digit * digit;         
-            sb.append(squared);                  
+            int digit = strx.charAt(i) - '0';
+            int squared = digit * digit;
+            sb.append(squared);
         }
 
         return Integer.parseInt(sb.toString());
 
     }
+
+    public static String reverseWords(final String original) {
+
+        StringBuilder sentence = new StringBuilder();
+        String[] toArr = original.split(" ");
+        for (int i = 0; i < toArr.length; i++) {
+            if (!toArr[i].isEmpty()) {
+                sentence.append(new StringBuilder(toArr[i]).reverse());
+            }
+            
+            if (i < toArr.length - 1) {
+                sentence.append(" ");
+            }
+        }
+
+        return sentence.toString();
+    }
+
+}
