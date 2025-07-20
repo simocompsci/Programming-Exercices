@@ -1,28 +1,33 @@
 
+import java.util.Scanner;
+
+
 public class HelloWorld {
 
     public static void main(String[] args) {
-        // Generics  = a concept where you can write a class , interface , or method
-        //             that is compatible with different data types.
-        //             <T , U> type parameter (placeholder that gets replaced with a real type) , and we can have more than one parm
-        //             <String> type argument (specifies the type)
+        // Threading = Allows a program to run multiple tasks simultaneouasly
+        //             helps improve performance with time-consumming operations
+        //             (File I/O , network communication , or any background tasks)
 
-        // ArrayList<String> fruits = new ArrayList<>(); // an example of using Generics (<String> type argument)
-        // using the Box class we created we will demonstrate how generics work
-        Box<String> box = new Box<>();
-        box.setItem("bananna");
-        System.out.println(box.getItem());
-        // See we can store any type in our class by using generics
-        Box<Integer> box1 = new Box<>();
-        box1.setItem(300);
-        System.out.println(box1.getItem());
+        // How to create a thread 
+        // Option 1 : Extend the Thread class (simpler)
+        // Option 2 : Implement the Runnable interface (better)
 
-        // Now using multi parameters in the product class
-        Product<String , Integer> product1 = new Product<>();
-        product1.setName("umbrella");
-        product1.setPrice(399);
+        Scanner scanner = new Scanner(System.in);
+        
+        System.err.println("You have 5 seconds to enter your name !!!!");
+        MyRunnable myRunnable = new MyRunnable(); // create an object of the thread we created
+        Thread thread = new Thread(myRunnable); // this is the line that lets your run the other thread alongside the main one
+        thread.setDaemon(true); // this ends our other thread once the main thread is finished
+        thread.start();// starts the other thread
 
-        System.out.println("the price of the " + product1.getName() + " is " + product1.getPrice());
+
+        System.err.println("Enter your name !!!");
+        String name = scanner.next();
+        System.out.println("hello " + name);
+        
+        scanner.close();
+        
 
     }
 
@@ -396,4 +401,48 @@ public class HelloWorld {
     // };
     // timer.schedule(countdown, 0 , 1000);
     // scanner.close();
+
+
+    // Generics  = a concept where you can write a class , interface , or method
+        //             that is compatible with different data types.
+        //             <T , U> type parameter (placeholder that gets replaced with a real type) , and we can have more than one parm
+        //             <String> type argument (specifies the type)
+
+        // ArrayList<String> fruits = new ArrayList<>(); // an example of using Generics (<String> type argument)
+        // using the Box class we created we will demonstrate how generics work
+        // Box<String> box = new Box<>();
+        // box.setItem("bananna");
+        // System.out.println(box.getItem());
+        // // See we can store any type in our class by using generics
+        // Box<Integer> box1 = new Box<>();
+        // box1.setItem(300);
+        // System.out.println(box1.getItem());
+
+        // // Now using multi parameters in the product class
+        // Product<String , Integer> product1 = new Product<>();
+        // product1.setName("umbrella");
+        // product1.setPrice(399);
+
+        // System.out.println("the price of the " + product1.getName() + " is " + product1.getPrice());
+
+
+        // Enums = (Enumerations) A special kind of class that represents a fixed set of constants
+        //          They improve code readabiltiy and are easy to maintain.
+        //          More efficient with switches when comparing strings
+        // We have created an enum class called Day that we will use in our demonstration
+        // Day day = Day.MONDAY;
+        // System.out.println(day);
+        // System.out.println(day.getDayNumber());
+
+        // This is helpfull when working with switches
+        // There is a way to get data from user ny the scanner and covert the string to Day day = Day.valueOf(userInput)
+        // switch (day) {
+        //     case SYNDAY -> System.out.println(day.getDayNumber());
+        //     case MONDAY -> System.out.println(day.getDayNumber());
+        //     case TUESDAY -> System.out.println(day.getDayNumber());
+        //     case WEDNESDAY -> System.out.println(day.getDayNumber());
+        //     case THURSDAY -> System.out.println(day.getDayNumber());
+        //     case FRIDAY -> System.out.println(day.getDayNumber());
+        //     case SATURDAY -> System.out.println(day.getDayNumber());
+        // }
 }
