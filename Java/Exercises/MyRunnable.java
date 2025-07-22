@@ -1,6 +1,6 @@
 public class MyRunnable implements Runnable {
     @Override
-    public  void run(){
+    public void run() {
         for (int i = 1; i <= 10; i++) {
             try {
                 Thread.sleep(1000);
@@ -12,7 +12,7 @@ public class MyRunnable implements Runnable {
                 System.out.println("time is up !! ");
                 System.exit(0); // we write this code to make our programm exit fully
             }
-            
+
         }
     }
 }

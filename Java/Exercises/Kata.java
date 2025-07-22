@@ -1,10 +1,13 @@
+import java.util.ArrayList;
 
 public class Kata {
-
     public static void main(String[] args) {
         // System.out.println(whoLikesIt("Alex", "Jacob", "Mark", "Max"));
         // System.out.println(squareDigits(66666));
-        System.out.println(reverseWords("This is an example!"));
+        // System.out.println(reverseWords("This is an example!"));
+        int[] integers = { 2, 4, 0, 100, 4, 11, 2602, 36 };
+        System.out.println(find(integers));
+
     }
 
     public static String whoLikesIt(String... names) {
@@ -51,13 +54,32 @@ public class Kata {
             if (!toArr[i].isEmpty()) {
                 sentence.append(new StringBuilder(toArr[i]).reverse());
             }
-            
+
             if (i < toArr.length - 1) {
                 sentence.append(" ");
             }
         }
 
         return sentence.toString();
+    }
+
+    static int find(int[] integers) {
+        int result;
+        ArrayList<Integer> odd = new ArrayList<>();
+        ArrayList<Integer> even = new ArrayList<>();
+        for (int i = 0; i < integers.length; i++) {
+            if (integers[i] % 2 == 0) {
+                even.add(integers[i]);
+            } else {
+                odd.add(integers[i]);
+            }
+        }
+        if (odd.size() == 1) {
+            result = odd.get(0);
+        } else {
+            result = even.get(0);
+        }
+        return result;
     }
 
 }

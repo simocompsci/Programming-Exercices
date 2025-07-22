@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "example",
+            "request": "launch",
+            "mainClass": "example",
+            "projectName": "Programming Exercices_d6038d75"
+        },
+        {
+            "type": "java",
+            "name": "Alarm",
+            "request": "launch",
+            "mainClass": "Alarm",
+            "projectName": "Programming Exercices_d6038d75"
+        },
+        {
+            "type": "java",
             "name": "Kata",
             "request": "launch",
             "mainClass": "Kata",
