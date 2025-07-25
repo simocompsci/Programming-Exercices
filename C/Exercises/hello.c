@@ -3,20 +3,31 @@
 #include <math.h>
 #include <string.h>
 
-
 // float sircumference(int r); // this is needed so that the function can be detected and executed (called function prototype)
 int main()
 {
+    // You have just implemented bubble sort
+    int array[] = {1, 8, 7, 6, 9, 5, 4, 77, 84, 85, 13};
+    int temp;
 
-    double prices[] = {12.5 , 25.4 , 77.5}; // storing values in ana array 
-    double grades[5]; // or we can define them like this with no values and then assign them later not above 5
-    // sizeof is an operator that returns the size of a varaible in bytes (in this case double is 8 bytes)
-    for (int i = 0; i <sizeof(prices)/sizeof(prices[0]) ; i++) // a way to loop through elements of an array
+    for (int i = 0; i < sizeof(array) / sizeof(array[0]); i++)
     {
-        printf("$%.2f \t" , prices[i]);
+        for (int j = 0; j < sizeof(array) / sizeof(array[0]) - 1; j++)
+        {
+            if (array[j] > array[j + 1]) // if we want it in descending order we can change the operator to <
+            {
+                temp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = temp;
+            }
+        }
     }
-    
-    
+
+    for (int i = 0; i <= sizeof(array) / sizeof(array[0]) - 1 ; i++)
+    {
+        printf("%d ", array[i]);
+    }
+
     return 0;
 };
 
@@ -112,16 +123,73 @@ int main()
 // printf(strnset(string1 , '?' , 3));
 
 // Loops as always the same thing
-    // for (int i = 10; i >= 0; i--)
-    // {
-    //     printf("%d \n" , i);
-    //     if (i == 0)
-    //     {
-    //         printf("happy new year");
-    //     }
-        
-    // }
-    // while (0 != 1)
-    // {
-    //     printf("infinit loop!!!!");
-    // }
+// for (int i = 10; i >= 0; i--)
+// {
+//     printf("%d \n" , i);
+//     if (i == 0)
+//     {
+//         printf("happy new year");
+//     }
+
+// }
+// while (0 != 1)
+// {
+//     printf("infinit loop!!!!");
+// }
+
+// double prices[] = {12.5 , 25.4 , 77.5}; // storing values in ana array
+// double grades[5]; // or we can define them like this with no values and then assign them later not above 5
+// // sizeof is an operator that returns the size of a varaible in bytes (in this case double is 8 bytes)
+// for (int i = 0; i <sizeof(prices)/sizeof(prices[0]) ; i++) // a way to loop through elements of an array
+// {
+//     printf("$%.2f \t" , prices[i]);
+// }
+
+// 2D arrays
+// int numbers[][3] = {{1,2,3} , {4,5,6}};
+
+// int numbers[2][3];
+// numbers[0][0] = 10;
+// numbers[0][1] = 30;
+// numbers[0][2] = 41;
+// numbers[1][0] = 44;
+// numbers[1][1] = 55;
+// numbers[1][2] = 88;
+
+// for (int i = 0; i < sizeof(numbers)/sizeof(numbers[0]); i++)
+// {
+
+//     for (int j = 0; j < sizeof(numbers[i])/sizeof(numbers[i][j]); j++)
+//     {
+//         printf("%d " , numbers[i][j]);
+//     }
+//     printf("\n");
+
+// }
+
+// Array of strings is like a 2d array
+// char cars[][10] = {"Mustang", "camaro", "mercedes"};
+// strcpy(cars[0] , "golf");
+// for (int i = 0; i < sizeof(cars)/sizeof(cars[0]) ; i++)
+// {
+//     printf("%s \n" , cars[i]);
+// }
+
+// swapping variable values
+// int x = 1;
+// int y = 3;
+// int z;
+
+// z = x;
+// x = y;
+// y = z;
+// printf("x :%d , y:%d" , x , y);
+
+// char a[15] = "water"; // we added 15 because when we try to copy string b that is less than a it wont work
+// char b[15] = "soda";
+// char temp[15];
+
+// strcpy(temp , a);
+// strcpy(a , b);
+// strcpy(b , temp);
+// printf("a : %s , b:%s" , a ,b);
