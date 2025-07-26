@@ -2,32 +2,38 @@
 #include <stdbool.h>
 #include <math.h>
 #include <string.h>
+#include <stdlib.h>
+#include <time.h>
 
 // float sircumference(int r); // this is needed so that the function can be detected and executed (called function prototype)
+
+void printAge(int *pAge){
+    printf("you are %d years old" ,  *pAge);
+}
+
 int main()
 {
-    // You have just implemented bubble sort
-    int array[] = {1, 8, 7, 6, 9, 5, 4, 77, 84, 85, 13};
-    int temp;
+    // Pointer = a "variable-like" reference that holds a memeory address to another variable , 
+    //           as a value to another variable , array , atc.
+    //           * = indirection operator (value at adress)
+    // Advantages of using Pointers :
+    // Less time in program execution 
+    // Working on the original execution 
+    // With the help of pointers , we can create data structures (linked-list , queue)
+    // Returning more than one value from functions
+    // Searching and sorting large data very easily
+    // Dynamically memory allocation
+    
+    int age = 21;
+    int *pAge = &age; // we can use either ADDRESSOF or & to access adrress of variables
 
-    for (int i = 0; i < sizeof(array) / sizeof(array[0]); i++)
-    {
-        for (int j = 0; j < sizeof(array) / sizeof(array[0]) - 1; j++)
-        {
-            if (array[j] > array[j + 1]) // if we want it in descending order we can change the operator to <
-            {
-                temp = array[j];
-                array[j] = array[j + 1];
-                array[j + 1] = temp;
-            }
-        }
-    }
+    // printf("adress of age : %p \n" , &age);
+    // printf("value of pAge : %p \n" , pAge); // when we print the value of pAge we get that the value = adrees of age
+    
+    // printf("value of age : %d \n" , age);
+    // printf("value of stored adress : %d \n" , *pAge);
 
-    for (int i = 0; i <= sizeof(array) / sizeof(array[0]) - 1 ; i++)
-    {
-        printf("%d ", array[i]);
-    }
-
+    printAge(pAge);
     return 0;
 };
 
@@ -193,3 +199,111 @@ int main()
 // strcpy(a , b);
 // strcpy(b , temp);
 // printf("a : %s , b:%s" , a ,b);
+
+// You have just implemented bubble sort
+// int array[] = {1, 8, 7, 6, 9, 5, 4, 77, 84, 85, 13};
+// int temp;
+
+// for (int i = 0; i < sizeof(array) / sizeof(array[0]); i++)
+// {
+//     for (int j = 0; j < sizeof(array) / sizeof(array[0]) - 1; j++)
+//     {
+//         if (array[j] > array[j + 1]) // if we want it in descending order we can change the operator to <
+//         {
+//             temp = array[j];
+//             array[j] = array[j + 1];
+//             array[j + 1] = temp;
+//         }
+//     }
+// }
+
+// for (int i = 0; i <= sizeof(array) / sizeof(array[0]) - 1 ; i++)
+// {
+//     printf("%d ", array[i]);
+// }
+
+// Structs = collection of related members (variables) they can be different data types listed under one name in a block of
+//  memory . They are very semilar to classes in oop but dont contain methods
+
+// struct User
+// {
+//     char name[25];
+//     int age;
+// };
+
+// typedef char boba[20]; // this means a char array of 20 bytes will be named boba Ex: boba boba1 = "hihiih";
+// // we often use typedef with structs
+// typedef struct
+// {
+//     char name[25];
+//     int score;
+
+// } player;
+
+// struct User user1 = {"simo" , 22};
+// struct User user2 = {"ahmed" , 33};
+// printf("%s is my name , and i am %d years old \n" , user1.name , user1.age);
+// printf("%s is my name , and i am %d years old \n" , user2.name , user2.age);
+
+// // typedef = a reserved keyword that gives an existing datatype a nickname
+// player player1 = {"mohammed" , 20};
+// player player2 = {"hasna" , 30};
+// printf("%s is my name , and i scored %d \n" , player1.name , player1.score);
+// printf("%s is my name , and i scored %d \n" , player2.name , player2.score);
+
+// Array of structs
+// typedef struct
+// {
+//     char name[20];
+//     float gpa;
+//     int age;
+
+// } Student;
+
+// Student student1 = {"hassan" , 3.55 , 20};
+// Student student2 = {"wael" , 4.0 , 21};
+
+// Student students[] = {student1 , student2};
+
+// for (int i = 0; i < sizeof(students)/sizeof(students[0]) ; i++)
+// {
+//     printf("%s " , students[i].name);
+//     printf("%.2f " , students[i].gpa);
+//     printf("%d " , students[i].age);
+//     printf("\n");
+// }
+
+// Enums in C
+// we can declare them inside or outside the main function
+// enum Day{SUN, MON, TUE, WED, THUR, FRI, SAT};
+// or we can put enum Day{SUN = 1 , MON = 2 ....};
+// enum Day today = MON;
+// printf("%d" , today); // enums are treated like integers
+// if (today == MON || SAT)
+// {
+//     printf("it s the weekend");
+// }
+
+// Pseudo random numbers = a set of values or elements that are statistically random
+// (dont use these for any array sort or cryptographic security)
+// srand(time(0)); // we use srand so that different nums get generated
+// int num1 = (rand() % 6) + 1 ; // between 1-6
+// printf("%d" , num1);
+
+// Memory = an array of bytes within RAM
+// Memory Block = a single (byte) within memory , used to hold some value
+// Memory Adress = the adress of where a memory block is located
+
+// char a = 'X';
+// char b = 'E';
+// char c = 'A';
+// printf("%d \n" , sizeof(a));
+// printf("%d \n" , sizeof(b));
+// printf("%d \n" , sizeof(c));
+
+// printf("%p \n" , _ADDRESSOF(a)); // these are the memory adresses in hexadecimal
+// printf("%p \n" , _ADDRESSOF(b)); // in this example they are stored one after the other
+// printf("%p \n" , _ADDRESSOF(c));
+
+// char array[20];
+// printf("%d \n" , sizeof(array)); // it prints 20 bytes 20 * 1byte of char (we can do the same to every datatype)
