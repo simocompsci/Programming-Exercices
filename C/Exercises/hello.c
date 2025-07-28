@@ -11,6 +11,37 @@ void printAge(int *pAge){
     printf("you are %d years old" ,  *pAge);
 }
 
+
+void merge(int arr[], int left, int mid, int right) {
+    int i = left, j = mid + 1, k = 0;
+    int size = right - left + 1;
+    int* temp = malloc(size * sizeof(int));
+
+    while (i <= mid && j <= right) {
+        temp[k++] = (arr[i] < arr[j]) ? arr[i++] : arr[j++];
+    }
+
+    while (i <= mid) temp[k++] = arr[i++];
+    while (j <= right) temp[k++] = arr[j++];
+
+    for (i = 0; i < size; i++) {
+        arr[left + i] = temp[i];
+    }
+
+    free(temp);
+}
+
+void mergeSort(int arr[], int left, int right) {
+    if (left >= right) return;
+
+    int mid = (left + right) / 2;
+
+    mergeSort(arr, left, mid);
+    mergeSort(arr, mid + 1, right);
+    merge(arr, left, mid, right);
+}
+
+
 int main()
 {
     // Pointer = a "variable-like" reference that holds a memeory address to another variable , 
@@ -24,8 +55,8 @@ int main()
     // Searching and sorting large data very easily
     // Dynamically memory allocation
     
-    int age = 21;
-    int *pAge = &age; // we can use either ADDRESSOF or & to access adrress of variables
+    // int age = 21;
+    // int *pAge = &age; // we can use either ADDRESSOF or & to access adrress of variables
 
     // printf("adress of age : %p \n" , &age);
     // printf("value of pAge : %p \n" , pAge); // when we print the value of pAge we get that the value = adrees of age
@@ -33,7 +64,13 @@ int main()
     // printf("value of age : %d \n" , age);
     // printf("value of stored adress : %d \n" , *pAge);
 
-    printAge(pAge);
+    // printAge(pAge);
+    int arr[] = {5, 2, 9, 1, 3};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    mergeSort(arr, 0, size - 1);
+
+    for (int i = 0; i < size; i++) printf("%d ", arr[i]);
     return 0;
 };
 
