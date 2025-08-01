@@ -336,17 +336,23 @@ function makeUser(name, age) {
 //   // Return the next square if sq is a perfect square, -1 otherwise
 //   nextsr = (Math.sqrt(sq)) % 1 === 0 ? Math.pow((Math.sqrt(sq) +1) , 2) : false;
 //   return nextsr;
-  
+
 // }
 
 // console.log(findNextSquare(11))
 
-function count(string) {
-  const result = {};
-  for (const char of string) {
-    result[char] = (result[char] || 0) + 1;
-  }
-  return result;
-}
+// function count(string) {
+//   const result = {};
+//   for (const char of string) {
+//     result[char] = (result[char] || 0) + 1;
+//   }
+//   return result;
+// }
 
-console.log(count("hahahahhgdgyyy"))
+// console.log(count("hahahahhgdgyyy"))
+
+function increment(x) { x++; }
+
+let a = 5;
+increment(a);
+console.log(a);
