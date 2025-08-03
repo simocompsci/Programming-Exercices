@@ -15,7 +15,7 @@ int main()
 {
     // Pointer = a "variable-like" reference that holds a memeory address to another variable , 
     //           as a value to another variable , array , atc.
-    //           * = indirection operator (value at adress)
+    //           * = indirection operator (value at adress) dereferencing
     // Advantages of using Pointers :
     // Less time in program execution 
     // Working on the original execution 

@@ -1,18 +1,13 @@
 #include <stdio.h>
-int ValeurSuivanteDe_i()
-{
-    static int i = 0; // the static keyword keeps the value of i between function calls wich lets it iterate
-                      // But if we remove static it creates an i = 0 each time and increments it to 1
-    i++;
-    return i;
-}
+
 int main()
 {
-    int i;
-    for (i = 10; i > 0; i--)
-    {
-        printf("%d\n", ValeurSuivanteDe_i());
-    }
+    int B[2][3];
+    int (*p)[3] = B;
+    printf("%d \n" ,   B); // these are all ways to access the address of the array
+    printf("%d \n" ,   B[0]);
+    printf("%d \n" ,   *B);
+    printf("%d \n" ,   &B[0][0]);
 }
 
 // int a = 2, b = 3; /* Declaration des variables globales */
@@ -56,3 +51,17 @@ int main()
 //     // } while (taille <= 0);
 
 // }
+
+// int ValeurSuivanteDe_i()
+// {
+//     static int i = 0; // the static keyword keeps the value of i between function calls wich lets it iterate
+//                       // But if we remove static it creates an i = 0 each time and increments it to 1
+//     i++;
+//     return i;
+// }
+
+// int i;
+    // for (i = 10; i > 0; i--)
+    // {
+    //     printf("%d\n", ValeurSuivanteDe_i());
+    // }
