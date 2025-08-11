@@ -101,5 +101,51 @@
     int ***pppy = &ppy; // 400
     printf("y = %d, *py = %d, **ppy = %d , **pppy = %d\n", y, *py, **ppy , ***pppy);
 
+    int m = 10, n, o;
+    int *z = &m; // Declaring an integer pointer z and assigning the address of m to it
+
+    // Printing basic information about pointers and variables
+    printf("\n\n Pointer : Show the basic declaration of pointer :\n");
+    printf("-------------------------------------------------------\n");
+    printf(" Here is m=10, n and o are two integer variable and *z is an integer");
+    printf("\n\n z stores the address of m  = %p\n", z); // Printing the address stored in z using %p
+    printf("\n *z stores the value of m = %i\n", *z); // Printing the value pointed to by z using *z
+    printf("\n &m is the address of m = %p\n", &m); // Printing the address of m using &m
+    printf("\n &n stores the address of n = %p\n", &n); // Printing the address of n using &n
+    printf("\n &o  stores the address of o = %p\n", &o); // Printing the address of o using &o
+    printf("\n &z stores the address of z = %p\n\n", &z); // Printing the address of z using &z
+
+    int* ab; // Declare a pointer variable ab
+    int c;   // Declare an integer variable m
+
+    m = 29; // Assign the value 29 to the variable m
+
+    printf("\n\n Pointer : How to handle the pointers in the program :\n");
+    printf("------------------------------------------------------------\n");
+    printf(" Here in the declaration ab = int pointer, int m = 29\n\n");
+
+    printf(" Address of m : %p\n", &c); // Print the address of variable m
+    printf(" Value of m : %d\n\n", c); // Print the value of variable m
+
+    ab = &m; // Assign the address of m to the pointer variable ab
+
+    printf(" Now ab is assigned with the address of m.\n");
+    printf(" Address of pointer ab : %p\n", ab);      // Print the address stored in pointer ab
+    printf(" Content of pointer ab : %d\n\n", *ab);   // Print the value pointed to by ab
+
+    m = 34; // Assign the value 34 to the variable m
+
+    printf(" The value of m assigned to 34 now.\n");
+    printf(" Address of pointer ab : %p\n", ab);      // Print the address stored in pointer ab
+    printf(" Content of pointer ab : %d\n\n", *ab);   // Print the value pointed to by ab
+
+    *ab = 7; // Assign the value 7 to the variable pointed by ab
+
+    printf(" The pointer variable ab is assigned the value 7 now.\n");
+    printf(" Address of m : %p\n", &c);               // Print the address of variable m
+                                                      // as ab contains the address of m
+                                                      // *ab changed the value of m and now m becomes 7
+    printf(" Value of m : %d\n\n", c);                // Print the value of variable m
+
     return 0;
 }
