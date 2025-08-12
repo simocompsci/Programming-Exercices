@@ -12,49 +12,26 @@ public class Alarm {
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.print("Enter the time you want to set the alarm to (HH:MM:SS) : ");
             String alarmTime = scanner.next();
-            LocalTime localTime = LocalTime.now();
             LocalTime timing = LocalTime.parse(alarmTime);
             // display that the alarm is set to that time
             System.out.println("The alarm is set to : " + timing);
 
             Timer timer = new Timer();
             TimerTask task = new TimerTask() {
-                LocalTime startTime = localTime;
-                int seconds = startTime.getSecond();
-                int minutes = startTime.getMinute();
-                int hours = startTime.getHour();
+                LocalTime startTime = LocalTime.now();
 
                 @Override
                 public void run() {
-                    if (seconds < 60) {
-                        seconds++;
-                        System.out.printf("%d:%d:%d\r", hours, minutes, seconds);
+                    while (startTime.isBefore(timing)) {
+                        startTime = LocalTime.now();
+                        System.out.printf("%d:%d:%d \r", startTime.getHour(), startTime.getMinute(), startTime.getSecond());
                     }
-                    else{
-                        seconds = 0;
-                        minutes++;
-                        System.out.println(hours+minutes+seconds);
-                        System.exit(0);
-                    }
+                    System.out.println("The clock has reached the time!!!!!");
+                    System.exit(0);
 
-                    // if (seconds == 60) {
-                    // seconds = 0;
-                    // minutes++;
-                    // if (minutes == 60) {
-                    // minutes = 0;
-                    // hours++;
-                    // }
-                    // if (hours == 24) {
-                    // hours = 0;
-
-                    // }
-                    // System.out.print(hours + ":" + minutes + ":" + seconds);
-                    // System.out.println("time is up !! ");
-                    // System.exit(0); // we write this code to make our programm exit fully
-                    // }
                 }
             };
-            timer.scheduleAtFixedRate(task, 0, 1000);
+            timer.scheduleAtFixedRate(task, 0, 500);
         } catch (DateTimeParseException e) {
             System.out.println("incorrect hour format");
         }
