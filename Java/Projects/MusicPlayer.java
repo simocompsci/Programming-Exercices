@@ -14,7 +14,7 @@ public class MusicPlayer {
         // this is a project to work with audio files ad play some music (.wav , .au ,
         // .aiff)
 
-        String filePath = "C:\\Users\\osaq\\Downloads\\positive-spring-day-cinematic-background-music-for-vlog-video-stories-385873.wav";
+        String filePath = "C:\\Users\\osaq\\Downloads\\نوض-القلاوي-نوض-nod-al9lawi-nod-Moroccan-Memes-Sound-Effect.wav";
         File file = new File(filePath);
 
         try (AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
@@ -41,7 +41,6 @@ public class MusicPlayer {
                         
                 }
             }
-            clip.start();
 
         } catch (FileNotFoundException e) {
             System.out.println("could not locate the file");

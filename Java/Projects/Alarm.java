@@ -1,45 +1,71 @@
+import java.io.File;
 import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 
 public class Alarm {
     public static void main(String[] args) {
+        String filePath = "C:\\Users\\osaq\\Downloads\\نوض-القلاوي-نوض-nod-al9lawi-nod-Moroccan-Memes-Sound-Effect.wav";
+        File file = new File(filePath);
 
-        // we will create an alarm clock that plays music when the time comes
-        // we will ask the user to enter the time in a formula of (HH:MM:SS) : 08:10:00
-        try (Scanner scanner = new Scanner(System.in)) {
+        Scanner scanner = new Scanner(System.in); // Keep open for the whole program
+
+        try {
+            // Ask user for alarm time
             System.out.print("Enter the time you want to set the alarm to (HH:MM:SS) : ");
             String alarmTime = scanner.next();
             LocalTime timing = LocalTime.parse(alarmTime);
-            // display that the alarm is set to that time
+
             System.out.println("The alarm is set to : " + timing);
 
             Timer timer = new Timer();
-            TimerTask task = new TimerTask() {
-                LocalTime startTime = LocalTime.now();
 
+            TimerTask task = new TimerTask() {
                 @Override
                 public void run() {
-                    while (startTime.isBefore(timing)) {
-                        startTime = LocalTime.now();
-                        System.out.printf("%d:%d:%d \r", startTime.getHour(), startTime.getMinute(), startTime.getSecond());
-                    }
-                    System.out.println("The clock has reached the time!!!!!");
-                    System.exit(0);
+                    LocalTime now = LocalTime.now();
+                    System.out.printf("%02d:%02d:%02d \r", now.getHour(), now.getMinute(), now.getSecond());
 
+                    // When alarm time is reached or passed
+                    if (!now.isBefore(timing)) {
+                        System.out.println("\nThe clock has reached the time!!!!!");
+
+                        // Play alarm sound in separate thread
+                        new Thread(() -> {
+                            try (AudioInputStream audioStream = AudioSystem.getAudioInputStream(file)) {
+                                Clip clip = AudioSystem.getClip();
+                                clip.open(audioStream);
+                                clip.loop(Clip.LOOP_CONTINUOUSLY); // Loop until stopped
+                                System.out.println("Press S to stop the alarm.");
+                                
+                                String response = "";
+                                while (!response.equalsIgnoreCase("S")) {
+                                    response = scanner.next(); // Use same scanner
+                                }
+
+                                clip.stop();
+                                clip.close();
+                                System.out.println("Bye !!!");
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }).start();
+
+                        timer.cancel(); // Stop timer so it doesn't keep checking
+                    }
                 }
             };
-            timer.scheduleAtFixedRate(task, 0, 500);
-        } catch (DateTimeParseException e) {
-            System.out.println("incorrect hour format");
-        }
 
-        // the displayed message after is the current time , that will be counting until
-        // it reaches the alarms time
-        // after that play the music + (sout *Alarm noises* as a message)
-        // the music will keep playing
-        // we will ask the user to press enter if he wants to stop the alarm
+            // Check every second
+            timer.scheduleAtFixedRate(task, 0, 1000);
+
+        } catch (DateTimeParseException e) {
+            System.out.println("Incorrect hour format. Please use HH:MM:SS.");
+        }
     }
 }
