@@ -18,12 +18,22 @@ public class HashMaps {
         map.put("pizza", 4.5);
         // map.remove("orange");
         // map.clear();
+        // map.get("orange");
         // System.out.println( map.values());
         for(String key : map.keySet()){// we use .keyset because hashmaps can not be itterated over with an enhanced for loop
             System.err.println(key + " : $" + map.get(key));
         }
         
-       
+       HashMap<Integer , String> Electronics = new HashMap<>();
+       Electronics.put(1, "laptop");
+       Electronics.put(2, "TV");
+       Electronics.put(3, "GPU");
+       Electronics.put(4, "Rasberie Pie");
+
+       for (Integer key : Electronics.keySet()) {
+           System.out.println(key + ": " + Electronics.get(key));
+       }
+
         
 
     }
