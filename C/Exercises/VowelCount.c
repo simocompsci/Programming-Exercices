@@ -18,14 +18,13 @@ int main()
         char ch = tolower(*ptr);
         if (strchr(vowels, ch))
         {
-            vowelCount++;
-            ptr++;
+            vowelCount++;    
         }
         else
         {
             consonantCount++;
-            ptr++;
         }
+        ptr++;
     }
 
     printf("the number of vowels is : %d\n", vowelCount);
