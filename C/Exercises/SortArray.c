@@ -30,7 +30,7 @@ int main()
     printf("Enter %d number/s of elements in the array : \n", n);
     for (int i = 0; i < n; i++)
     {
-        printf("element - %d : ", i+1);
+        printf("element - %d : ", i + 1);
         scanf("%d", &numbers[i]);
         printf("\n");
     }
