@@ -13,9 +13,9 @@ int ArraySum(int *arr, int n)
 int main()
 {
     int n;
-    int arr[n];
     printf("Input the number of elements to store in the array (max 10) : ");
     scanf("%d", &n);
+    int arr[n];
     printf("Input %d number of elements in the array : ", n);
     printf("\n");
     for (int i = 0; i < n; i++)
