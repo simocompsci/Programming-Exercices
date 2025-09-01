@@ -75,22 +75,50 @@
 //     return 0;
 // }
 
-int PrintArr(int* arr , int n , int size){
-    if (n == size)
-    {
-        return n;
-    }
-    printf("%d\n" , arr[n]);
-    return PrintArr(arr , n +1 , size);
+// int PrintArr(int* arr , int n , int size){
+//     if (n == size)
+//     {
+//         return n;
+//     }
+//     printf("%d\n" , arr[n]);
+//     return PrintArr(arr , n +1 , size);
     
+// }
+
+
+// int main(){
+//     int arr[] = {1,2,4,5,7};
+//     int size = sizeof(arr)/sizeof(int);
+//     int* ptr = arr;
+//     int n = 0;
+//     PrintArr(ptr , n , size);
+//     return 0;
+// }
+
+int noOfDigits(int n1)
+{
+    static int ctr=0;
+
+     if(n1!=0)
+     {
+          ctr++;
+         noOfDigits(n1/10);
+    }
+
+    return ctr;
 }
 
+int main()
+{
+  int n1,ctr;
+    printf("\n\n count the digits of a given number :\n");
+	printf("-----------------------------------------\n");
+    printf(" Input  a number : ");
+    scanf("%d",&n1);
 
-int main(){
-    int arr[] = {1,2,4,5,7};
-    int size = sizeof(arr)/sizeof(int);
-    int* ptr = arr;
-    int n = 0;
-    PrintArr(ptr , n , size);
+    ctr = noOfDigits(n1);
+
+    printf(" The number of digits in the number is :  %d \n\n",ctr);
     return 0;
 }
+
