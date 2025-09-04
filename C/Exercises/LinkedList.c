@@ -98,6 +98,61 @@ struct node* del_first(struct node *head){
     
 }
 
+struct node* del_last(struct node *head){
+    // in this function we are deleting the last node using two pointers
+    if (head == NULL)
+    {
+        printf("The list is empty !!! \n");
+    }
+    else if (head->link == NULL)
+    {
+        free(head);
+        head = NULL;
+    }
+    else
+    {
+        struct node *temp = head;
+        struct node *temp2 = head;
+        while (temp->link != NULL)
+        {
+            temp2 = temp;
+            temp = temp->link;
+        }
+        temp2->link = NULL;
+        free(temp);
+        temp = NULL;
+        
+    }
+    return  head;
+    
+    
+}
+
+void del_last1(struct node *head){
+    // in this function we delete the last node using only one pointer
+    if (head == NULL)
+    {
+        printf("The list is empty !!! \n");
+    }
+    else if (head->link == NULL)
+    {
+        free(head);
+        head = NULL;
+    }
+    else
+    {
+        struct node *temp = head;
+        while (temp->link->link != NULL)
+        {
+            temp = temp->link;
+        }
+        free(temp->link);
+        temp->link = NULL;
+    }
+
+    
+}
+
 void free_list(struct node *head) {
     struct node *temp;
     while (head != NULL) {
@@ -135,7 +190,8 @@ int main(){
     head = add_beg(head , 24);
     int data = 55 , postion = 3;
     add_at_pos(head , data , postion);
-    head = del_first(head);
+    // head = del_first(head);
+    head = del_last(head);
     struct node *ptr = head;
     while (ptr != NULL)
     {
