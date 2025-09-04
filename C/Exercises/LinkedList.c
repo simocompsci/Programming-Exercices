@@ -65,6 +65,39 @@ struct node* add_beg(struct node *head , int data){
     return head;
 }
 
+void add_at_pos(struct node *head , int data , int pos){
+    struct node *ptr = head;
+    struct node *ptr2 = malloc(sizeof(struct node));
+    ptr2->data = data;
+    ptr2->link = NULL;
+    
+    pos--;
+    while (pos != 1)
+    {
+        ptr = ptr->link;
+        pos--;
+    }
+    ptr2->link = ptr->link;
+    ptr->link = ptr2;
+    
+}
+
+struct node* del_first(struct node *head){
+    if (head == NULL)
+    {
+        printf("List is empty !!! \n");
+    }
+    else
+    {
+        struct node *temp = head;
+        head = head->link;
+        free(temp);
+    }
+    return head;
+    
+    
+}
+
 void free_list(struct node *head) {
     struct node *temp;
     while (head != NULL) {
@@ -100,6 +133,9 @@ int main(){
     // print_list(head);
     // free_list(head);
     head = add_beg(head , 24);
+    int data = 55 , postion = 3;
+    add_at_pos(head , data , postion);
+    head = del_first(head);
     struct node *ptr = head;
     while (ptr != NULL)
     {
