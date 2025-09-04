@@ -37,6 +37,7 @@ void add_at_end(struct node *head , int data){
         ptr = ptr->link;
     }
     ptr->link = temp;
+    
 }
 
 void print_list(struct node *head){
@@ -53,6 +54,24 @@ void print_list(struct node *head){
     }
     
     
+}
+
+struct node* add_beg(struct node *head , int data){
+    struct node *ptr = malloc(sizeof(struct node));
+    ptr->data = data;
+    ptr->link = NULL;
+    ptr->link = head;
+    head = ptr;
+    return head;
+}
+
+void free_list(struct node *head) {
+    struct node *temp;
+    while (head != NULL) {
+        temp = head;
+        head = head->link;
+        free(temp);
+    }
 }
 
 int main(){
@@ -75,11 +94,18 @@ int main(){
     // printf("%d\n" , current->data);
     // printf("%p\n" , current->link);
 
-    add_at_end(head , 48);
-    add_at_end(head , 12);
-    count_list_nodes(head);
-    print_list(head);
-    free(head);
-    free(current);
+    // add_at_end(head , 48);
+    // add_at_end(head , 12);
+    // count_list_nodes(head);
+    // print_list(head);
+    // free_list(head);
+    head = add_beg(head , 24);
+    struct node *ptr = head;
+    while (ptr != NULL)
+    {
+        printf("%d " , ptr->data);
+        ptr = ptr->link;
+    }
+    
     return 0;
 }
