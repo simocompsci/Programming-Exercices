@@ -362,17 +362,47 @@ function makeUser(name, age) {
 // console.log(name.toUpperCase());
 
 // these fuckers in javascript can store elements of any type
-let fruits = ["Apple", "Orange", "Plum"];
-alert(fruits);
+// let fruits = ["Apple", "Orange", "Plum"];
+// alert(fruits);
 
-for (let fruit of fruits) {
-  alert(fruit);
-}
+// for (let fruit of fruits) {
+//   alert(fruit);
+// }
 
-let matrix = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9]
+// let matrix = [
+//   [1, 2, 3],
+//   [4, 5, 6],
+//   [7, 8, 9]
+// ];
+
+// alert( matrix[0][1] );
+
+["Bilbo", "Gandalf", "Nazgul"].forEach((item, index, array) => {
+  alert(`${item} is at index ${index} in ${array}`);
+});
+
+let users = [
+  {id: 1, name: "John"},
+  {id: 2, name: "Pete"},
+  {id: 3, name: "Mary"},
+  {id: 4, name: "John"}
 ];
 
-alert( matrix[0][1] );
+let user = users.find(item => item.id == 1);
+
+alert(user.name); 
+
+
+
+// Find the index of the first John
+alert(users.findIndex(user => user.name == 'John')); // 0
+
+// Find the index of the last John
+alert(users.findLastIndex(user => user.name == 'John')); // 3
+
+let someUsers = users.filter(item => item.id < 3);
+
+alert(someUsers.length);
+
+let lengths = ["Bilbo", "Gandalf", "Nazgul"].map(item => item.length); // we use map to transform elements of an array
+alert(lengths); // 5,7,6
