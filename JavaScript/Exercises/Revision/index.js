@@ -351,8 +351,28 @@ function makeUser(name, age) {
 
 // console.log(count("hahahahhgdgyyy"))
 
-function increment(x) { x++; }
+// function increment(x) { x++; }
 
-let a = 5;
-increment(a);
-console.log(a);
+// let a = 5;
+// increment(a);
+// console.log(a);
+
+
+// let name = "Mohammed";
+// console.log(name.toUpperCase());
+
+// these fuckers in javascript can store elements of any type
+let fruits = ["Apple", "Orange", "Plum"];
+alert(fruits);
+
+for (let fruit of fruits) {
+  alert(fruit);
+}
+
+let matrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];
+
+alert( matrix[0][1] );
