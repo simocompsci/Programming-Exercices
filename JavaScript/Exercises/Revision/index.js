@@ -377,32 +377,59 @@ function makeUser(name, age) {
 
 // alert( matrix[0][1] );
 
-["Bilbo", "Gandalf", "Nazgul"].forEach((item, index, array) => {
-  alert(`${item} is at index ${index} in ${array}`);
-});
+// ["Bilbo", "Gandalf", "Nazgul"].forEach((item, index, array) => {
+//   alert(`${item} is at index ${index} in ${array}`);
+// });
 
-let users = [
-  {id: 1, name: "John"},
-  {id: 2, name: "Pete"},
-  {id: 3, name: "Mary"},
-  {id: 4, name: "John"}
-];
+// let users = [
+//   { id: 1, name: "John" },
+//   { id: 2, name: "Pete" },
+//   { id: 3, name: "Mary" },
+//   { id: 4, name: "John" }
+// ];
 
-let user = users.find(item => item.id == 1);
+// let user = users.find(item => item.id == 1);
 
-alert(user.name); 
+// alert(user.name);
 
 
 
 // Find the index of the first John
-alert(users.findIndex(user => user.name == 'John')); // 0
+// alert(users.findIndex(user => user.name == 'John')); // 0
 
-// Find the index of the last John
-alert(users.findLastIndex(user => user.name == 'John')); // 3
+// // Find the index of the last John
+// alert(users.findLastIndex(user => user.name == 'John')); // 3
 
-let someUsers = users.filter(item => item.id < 3);
+// let someUsers = users.filter(item => item.id < 3);
 
-alert(someUsers.length);
+// alert(someUsers.length);
 
-let lengths = ["Bilbo", "Gandalf", "Nazgul"].map(item => item.length); // we use map to transform elements of an array
-alert(lengths); // 5,7,6
+// let lengths = ["Bilbo", "Gandalf", "Nazgul"].map(item => item.length); // we use map to transform elements of an array
+// alert(lengths); // 5,7,6
+
+
+let arr = [1, 55, 88, 99, 102, 200, 451, 986];
+let target = 55;
+
+const BinarySearch = (arr, target) => {
+  let left = 0;
+  let right = arr.length - 1;
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+    if (arr[mid] === target) {
+      return mid;
+    }
+    else if (arr[mid] > target) {
+      right = mid - 1;
+    }
+    else {
+      left = mid + 1;
+    }
+  }
+
+  return -1;
+}
+
+console.log(BinarySearch(arr , target));
+
+
