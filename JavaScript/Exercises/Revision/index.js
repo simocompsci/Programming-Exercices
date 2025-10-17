@@ -408,28 +408,61 @@ function makeUser(name, age) {
 // alert(lengths); // 5,7,6
 
 
-let arr = [1, 55, 88, 99, 102, 200, 451, 986];
-let target = 55;
 
-const BinarySearch = (arr, target) => {
-  let left = 0;
-  let right = arr.length - 1;
-  while (left <= right) {
-    const mid = Math.floor((left + right) / 2);
-    if (arr[mid] === target) {
-      return mid;
+// binary search algorithm implementation
+// let arr = [1, 55, 88, 99, 102, 200, 451, 986];
+// let target = 55;
+
+// const BinarySearch = (arr, target) => {
+//   let left = 0;
+//   let right = arr.length - 1;
+//   while (left <= right) {
+//     const mid = Math.floor((left + right) / 2);
+//     if (arr[mid] === target) {
+//       return mid;
+//     }
+//     else if (arr[mid] > target) {
+//       right = mid - 1;
+//     }
+//     else {
+//       left = mid + 1;
+//     }
+//   }
+
+//   return -1;
+// }
+
+// console.log(BinarySearch(arr , target));
+
+
+// selection sort algorithm implementation
+const findsmallest = (liste) =>{
+  let smallest = liste[0];
+  let smallest_index = 0;
+  for (let i = 0; i < liste.length; i++) {
+    if(liste[i] < smallest){
+      smallest = liste[i];
+      smallest_index = i;
     }
-    else if (arr[mid] > target) {
-      right = mid - 1;
-    }
-    else {
-      left = mid + 1;
-    }
+    
   }
-
-  return -1;
+  return smallest_index;
 }
 
-console.log(BinarySearch(arr , target));
+const selectionSort = (liste) => {
+  let newArr = [];
+  let copiedArr = [...liste];
+
+  while (copiedArr.length > 0) {
+    let smallestIndex = findsmallest(copiedArr);
+
+    newArr.push(copiedArr[smallestIndex]);
+
+    copiedArr.splice(smallestIndex, 1);
+  }
+
+  return newArr;
+};
 
 
+console.log(selectionSort([2, 451, 986 , 455, 88, 99, 102, 200]))
