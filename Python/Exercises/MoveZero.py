@@ -6,7 +6,7 @@ def moveZeroes(nums):
         left = [i for i in nums if i != pivot]
         right = [i for i in nums if i == pivot]
 
-        nums = left + right
+        nums[:] = left + right
         return nums
     
     
