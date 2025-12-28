@@ -111,11 +111,6 @@ max_steps = 50
 
 Q = np.zeros((36, 4))
 
-# Fixed environment for training
-ROBOT_START = None
-TRESOR_POS = None
-PIEGES_POS = None
-
 
 def entrainer():
     global Q, ROBOT_START, TRESOR_POS, PIEGES_POS
@@ -130,15 +125,11 @@ def entrainer():
             state = pos_state(robot_pos)
             action = epsilon_greedy(robot_pos, Q, epsilon)
 
-            new_pos, reward, done = step(
-                action, robot_pos, TRESOR_POS, PIEGES_POS
-            )
+            new_pos, reward, done = step(action, robot_pos, TRESOR_POS, PIEGES_POS)
             new_state = pos_state(new_pos)
 
             # Q-learning update
-            Q[state, action] += alpha * (
-                reward + gamma * np.max(Q[new_state]) - Q[state, action]
-            )
+            Q[state, action] += alpha * (reward + gamma * np.max(Q[new_state]) - Q[state, action])
 
             robot_pos = new_pos
 
