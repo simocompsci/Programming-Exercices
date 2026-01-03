@@ -1,13 +1,6 @@
-def topKFrequent(nums):
-    my_map = {}
-    my_list = []
-    n = len(nums)
-
-    for i in range(n):
-        if nums[i] not in my_map:
-            my_map[nums[i]] = nums.count(i)
-    print(my_map)
+def topKFrequent(nums , k):
     
+    return 1
 
 
 
