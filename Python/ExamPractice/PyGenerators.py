@@ -8,17 +8,17 @@ def squarembers(nums):
 nums = [1,2,3,4,5,6,7,8,9]
 
 squared = (x*x for x in nums)
-# print(list(squared))
-# print(squarembers(nums))
+print(list(squared))
+print(squarembers(nums))
 
 
 # using next()
-# this function prints the next value in the generator , and if it's the start it prints index's 0 valu
+# this function prints the next value in the generator , and if it's the start it prints index's 0 value
 # print(next(squared))
 
 # we can write a loop 
-# for i in nums:
-#     print(next(squared))
+for i in nums:
+    print(next(squared))
 
 
 def counter(max):
