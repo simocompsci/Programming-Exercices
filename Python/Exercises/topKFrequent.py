@@ -1,10 +1,23 @@
 def topKFrequent(nums , k):
+    n = len(nums)
+    buckets = [[] for _ in range(n)]
+    myList = []
+
+    for num in nums:
+        bi = num % len(buckets)
+        buckets[bi].append(num)
+
+
     
-    return 1
+
+
+    print(buckets)
+    
 
 
 
-topKFrequent()
+
+topKFrequent([1,1,1,2,2,3] , 2)
 
 # initial approach:
 # myList = []
