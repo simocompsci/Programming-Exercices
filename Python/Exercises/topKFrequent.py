@@ -1,41 +1,43 @@
 def topKFrequent(nums , k):
-    n = len(nums)
-    buckets = [[] for _ in range(n)]
-    myList = []
+    count = {}
+    arr = [[] for i in range(len(nums) + 1)]
 
-    for num in nums:
-        bi = num % len(buckets)
-        buckets[bi].append(num)
+    for n in nums:
+        count[n] = 1 + count.get(n , 0)
 
+    for n , c in count.items():
+        arr[c].append(n)
 
-    
-
-
-    print(buckets)
-    
-
-
-
-
-topKFrequent([1,1,1,2,2,3] , 2)
-
-# initial approach:
-# myList = []
-#     stats = {'a': 1, 'b': 3000, 'c': 0}
-    
-    
-#     for i in range(2):
-#         max_key = max(stats , key=stats.get)
-#         myList.append(stats.pop(max_key))
-    
-
-#     print(myList)
+    res = []
+    for i in range(len(arr) - 1 , 0 , -1):
+        for n in arr[i]:
+            res.append(n)
+            if len(res) == k:
+                return res
 
 
-# i will take the elements of the array , count their iterations 
-# and store them with their count in a hashmap key->nums[i] values->nums[i].count()
-# and then find a way to get the keys sorted based on their value
-# then store them in a list and get the k first elemnts of the list
 
 
-# Second and correct approach is to use the bucket sort algorithm
+print(topKFrequent([1,1,1,2,2,3] , 2))
+
+#  Bucket Sort
+# Intuition
+# Each number in the array appears a certain number of times, and the maximum possible frequency is the length of the array.
+# We can use this idea by creating a list where the index represents a frequency, and at each index we store all numbers that appear exactly that many times.
+
+# For example:
+
+# All numbers that appear 1 time go into group freq[1].
+# All numbers that appear 2 times go into group freq[2].
+# And so on.
+# After we build these groups, we look from the highest possible frequency down to the lowest and collect numbers from these groups until we have k of them.
+# This way, we directly jump to the most frequent numbers without sorting all the elements by frequency.
+
+# Algorithm:
+# Build a frequency map that counts how many times each number appears.
+# Create a list of groups freq, where freq[i] will store all numbers that appear exactly i times.
+# For each number and its frequency in the map, add the number to freq[frequency].
+# Initialize an empty result list.
+# Loop from the largest possible frequency down to 1:
+# For each number in freq[i], add it to the result list.
+# Once the result contains k numbers, return it.
