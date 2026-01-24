@@ -16,5 +16,8 @@ def decode(self, s: str) -> List[str]:
 
 
 # first Approach:
-
+# taking the input list of strings , taking each string and encodind it and storing it with it's length i a datastrucutre
+# then concatinating the strings together to get the result of the first function 
+# then for the second function taking that string , starting from index 0 , taking a string at time using the length of it
+# and then appending it to a list that will match the first input list hopefully
 
