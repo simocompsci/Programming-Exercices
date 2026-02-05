@@ -28,3 +28,9 @@ print(list(encoded_text))
 
 
 # Correct Approach:
+# We can use an encoding approach where we start with a number representing the length of the string, 
+# followed by a separator character (let's use # for simplicity), and then the string itself. To decode, 
+# we read the number until we reach a #, then use that number to read the specified number of characters as the string.
+
+# you may ask why use a # in the string , it's because we could have a long string (eg: 1000 character) and storing the 
+# length of that string will require us to first loop until we find the # so we can extract the length correctly
