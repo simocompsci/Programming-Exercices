@@ -12,17 +12,18 @@ def encode(strs: list[str]) -> str:
 
 def decode(s: str):
     res_list = []
-    string_item = ""
-    extracted_len = ""
     i = 0
-    while s[i] != "#":
-        extracted_len += s[i]
-        i += 1
-    string_item = s[i + 1 : i + 1 +int(extracted_len)]
-    res_list.append(string_item)
-    i = int(extracted_len) + 2
-    print(extracted_len)
-    print(string_item)
+    while i < len(s): # loop through the whole string
+        j = i
+        if s[j] != "#": # extracting the length
+            j += 1
+
+        length  = int(s[i : j])
+        word = s[j+1 : j+1+length] # extracting the word based on length
+        res_list.append(word)
+
+        i = j + 1 + length # reasigning i
+
     return res_list
 
         
