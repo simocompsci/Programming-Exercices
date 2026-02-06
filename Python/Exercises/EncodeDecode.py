@@ -2,20 +2,40 @@ def encode(strs: list[str]) -> str:
     encoded_string = ""
     for item in strs:
         length = len(item)
-        encoded_string += str(length) + item + "#"
+        encoded_string += str(length) + "#" + item 
     return encoded_string
 
+# now i need to extract the length using a loop before reaching the # character,
+        # and once reaching it i need to start extracting the string based on the length,
+        # i can do this by starting at index 0 and using a while loop to check if i != #,
+        # then i use the length to extract the string and then move ahead
 
+def decode(s: str):
+    res_list = []
+    string_item = ""
+    extracted_len = ""
+    i = 0
+    while s[i] != "#":
+        extracted_len += s[i]
+        i += 1
+    string_item = s[i + 1 : i + 1 +int(extracted_len)]
+    res_list.append(string_item)
+    i = int(extracted_len) + 2
+    print(extracted_len)
+    print(string_item)
+    return res_list
 
-
+        
+        
 
 
 
 
 strings = ["momo" , "hassan" , "mounir" , "lalam" , "blibli"]
 print(encode(strings))
-# def decode(self, s: str) -> List[str]:
-#     return "hi"
+res_string = encode(strings)
+print(decode(res_string))
+
 
 
 
