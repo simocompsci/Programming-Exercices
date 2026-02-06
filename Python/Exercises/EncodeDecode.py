@@ -1,14 +1,23 @@
-# def encode(self, strs: List[str]) -> str:
-#     return "hello"
+def encode(strs: list[str]) -> str:
+    encoded_string = ""
+    for item in strs:
+        length = len(item)
+        encoded_string += str(length) + item + "#"
+    return encoded_string
 
+
+
+
+
+
+
+
+strings = ["momo" , "hassan" , "mounir" , "lalam" , "blibli"]
+print(encode(strings))
 # def decode(self, s: str) -> List[str]:
 #     return "hi"
 
 
-s = "Hello, World!"
-
-encoded_text = s.encode()
-print(list(encoded_text))
 
 
 # this is the problem set of encode decode strings of the neetcode 150
