@@ -43,7 +43,7 @@ const updatedUser = { ...user1, age: 29 }; // Overrides age without modifying `u
 // Creates a new array of the same lengthby applying a function to transform each element
 
 const numbers2 = [1, 2, 3, 4, 5];
-const squared = numbers2.map(num => num * num);
+const squared = numbers2.map((num) => num * num);
 console.log(squared);
 
 // filter() -> subset selection
@@ -56,44 +56,45 @@ const students = [
   { name: "hassan", age: 25 },
 ];
 
-const adultStudents = students.filter(student => student.age >= 18);
-console.log(adultStudents)
+const adultStudents = students.filter((student) => student.age >= 18);
+console.log(adultStudents);
 
 // reduce() -> aggregation
-// Iterates over an array to aggregate its elements into a single resulting value 
+// Iterates over an array to aggregate its elements into a single resulting value
 // (such as a sum, count, or accumulated object) using an initial accumulator value
 
-const numbers3 = [1,2,5,8,7,9]
-const sum = numbers3.reduce((acc , num) => acc + num, 0);
-console.log(sum)
+const numbers3 = [1, 2, 5, 8, 7, 9];
+const sum = numbers3.reduce((acc, num) => acc + num, 0);
+console.log(sum);
 
-// Chaining transformation operations 
-// These functional methods can be chained together into a single pipeline 
+// Chaining transformation operations
+// These functional methods can be chained together into a single pipeline
 // to perform multi-step data processing efficiently and cleanly
 
-const numbers4 = [6,66,5,87,99,10,24,2]
+const numbers4 = [6, 66, 5, 87, 99, 10, 24, 2];
 
-const sumOfEvenSquares = numbers4.filter(num => num % 2 === 0)
-                                  .map(num => num * num)
-                                  .reduce((acc , num) => acc + num , 0)
+const sumOfEvenSquares = numbers4
+  .filter((num) => num % 2 === 0)
+  .map((num) => num * num)
+  .reduce((acc, num) => acc + num, 0);
 
-console.log(sumOfEvenSquares)
-
+console.log(sumOfEvenSquares);
 
 // Arrow functions and Callbacks
-// Introduced in ES6, arrow functions offer a modern syntax 
+// Introduced in ES6, arrow functions offer a modern syntax
 // for declaring functions with specific structural advantages
 
-
 // Traditional function
-const add1 = function(a, b) { return a + b; };
+const add1 = function (a, b) {
+  return a + b;
+};
 
 // Arrow function with implicit return [2, 4]
 const add2 = (a, b) => a + b;
 
-// Understanding callbacks 
+// Understanding callbacks
 
-// A callback is a function passed as an argument into another 
+// A callback is a function passed as an argument into another
 // function, designed to be executed ("called back") at a later time or in response to a specific action.
 
 // Callbacks are widely used across JavaScript:
@@ -106,23 +107,21 @@ const add2 = (a, b) => a + b;
 
 // When attaching an event listener, you pass the function reference itself, not the result of invoking it.
 
-
 // Correct: Passing the function reference [12]
 button.onclick = handleClick;
 
 // Incorrect: Calling the function immediately during setup!
-button.onclick = handleClick(); 
-
+button.onclick = handleClick();
 
 // Avoiding Event Loop Scoping Pitfalls
 // When attaching callbacks inside loops (such as binding events to
-// a list of items), using `var` causes all callbacks to share a single mutated 
-// variable[10][16]. Modern JavaScript resolves this by using block-scoped let / const or 
+// a list of items), using `var` causes all callbacks to share a single mutated
+// variable[10][16]. Modern JavaScript resolves this by using block-scoped let / const or
 // forEach() iterations, ensuring every callback closes over its own unique value
 
 const helpText = [
   { id: "email", help: "Your email address" },
-  { id: "name", help: "Your full name" }
+  { id: "name", help: "Your full name" },
 ];
 
 // Correct: Block-scoped `const` inside for...of creates an independent closure per iteration [17]
@@ -135,3 +134,79 @@ for (const item of helpText) {
 // Note : keep in mind that the array methods filter() , map() , reduce()...
 // are like loops conceptually that recieve callback functions to do transfromations on the array
 // its like the function of map , reduce ... is to loop through the array and your callback is what does the work
+
+// Callbacks for Asynchronous Execution
+console.log("Start");
+
+setTimeout(function () {
+  console.log("Inside setTimeout");
+}, 2000);
+
+console.log("End");
+
+
+// Callbacks intreduces a new probelm of nested callbacks which makes
+// code readability hard
+
+// Alternatives to Callbacks
+// 1. Promises (Fixing Callback Hell)
+function step1() {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            console.log("Step 1 completed");
+            resolve();
+        }, 1000);
+    });
+}
+
+function step2() {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            console.log("Step 2 completed");
+            resolve();
+        }, 1000);
+    });
+}
+
+function step3() {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            console.log("Step 3 completed");
+            resolve();
+        }, 1000);
+    });
+}
+
+step1()
+    .then(step2)
+    .then(step3)
+    .then(() => console.log("All steps completed"));
+
+// 2. Async/Await (Cleaner Alternative) 
+async function processSteps() {
+    await step1();
+    await step2();
+    await step3();
+    console.log("All steps completed");
+}
+
+processSteps();
+
+// JavaScript Promise
+
+
+// JavaScript Promises make handling asynchronous operations like API calls, file loading, or time delays easier. Think of a Promise as a placeholder for a value that will be available in the future. It can be in one of three states
+
+// Pending: The task is in the initial state.
+// Fulfilled: The task was completed successfully, and the result is available.
+// Rejected: The task failed, and an error is provided.
+// Here is an example Promise to check if a number is even. If yes, it resolves; otherwise, it rejects.
+
+let checkEven = new Promise((resolve, reject) => {
+    let number = 4;
+    if (number % 2 === 0) resolve("The number is even!");
+    else reject("The number is odd!");
+});
+checkEven
+    .then((message) => console.log(message)) // On success
+    .catch((error) => console.error(error)); // On failure
