@@ -144,56 +144,54 @@ setTimeout(function () {
 
 console.log("End");
 
-
 // Callbacks intreduces a new probelm of nested callbacks which makes
 // code readability hard
 
 // Alternatives to Callbacks
 // 1. Promises (Fixing Callback Hell)
 function step1() {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            console.log("Step 1 completed");
-            resolve();
-        }, 1000);
-    });
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("Step 1 completed");
+      resolve();
+    }, 1000);
+  });
 }
 
 function step2() {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            console.log("Step 2 completed");
-            resolve();
-        }, 1000);
-    });
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("Step 2 completed");
+      resolve();
+    }, 1000);
+  });
 }
 
 function step3() {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            console.log("Step 3 completed");
-            resolve();
-        }, 1000);
-    });
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("Step 3 completed");
+      resolve();
+    }, 1000);
+  });
 }
 
 step1()
-    .then(step2)
-    .then(step3)
-    .then(() => console.log("All steps completed"));
+  .then(step2)
+  .then(step3)
+  .then(() => console.log("All steps completed"));
 
-// 2. Async/Await (Cleaner Alternative) 
+// 2. Async/Await (Cleaner Alternative)
 async function processSteps() {
-    await step1();
-    await step2();
-    await step3();
-    console.log("All steps completed");
+  await step1();
+  await step2();
+  await step3();
+  console.log("All steps completed");
 }
 
 processSteps();
 
 // JavaScript Promise
-
 
 // JavaScript Promises make handling asynchronous operations like API calls, file loading, or time delays easier. Think of a Promise as a placeholder for a value that will be available in the future. It can be in one of three states
 
@@ -203,10 +201,85 @@ processSteps();
 // Here is an example Promise to check if a number is even. If yes, it resolves; otherwise, it rejects.
 
 let checkEven = new Promise((resolve, reject) => {
-    let number = 4;
-    if (number % 2 === 0) resolve("The number is even!");
-    else reject("The number is odd!");
+  let number = 4;
+  if (number % 2 === 0) resolve("The number is even!");
+  else reject("The number is odd!");
 });
 checkEven
-    .then((message) => console.log(message)) // On success
-    .catch((error) => console.error(error)); // On failure
+  .then((message) => console.log(message)) // On success
+  .catch((error) => console.error(error)); // On failure
+
+// Promises and async/await are the foundational mechanisms for asynchronous programming in JavaScript.
+// They allow applications to perform tasks that take time—such as making API requests over a network—without
+//  blocking the execution of the rest of the application
+
+// 1. What is a Promise?
+
+// A Promise is a built-in object representing the eventual completion or failure of an asynchronous operation.
+
+// Promises are handled using method chaining:
+
+// .then(): Executes when the Promise resolves successfully with data.
+// .catch(): Executes if the Promise is rejected due to an error, such as a network failure.
+
+// Unhandled Promise rejections can interrupt application logic or output unhandled error warnings in the console,
+//  making explicit rejection handling with `.catch()` essential
+
+// 2. Async and Await in JavaScript
+
+// Async/Await in JavaScript allows you to write asynchronous code in a clean, synchronous-like manner, making it easier to read, understand, and maintain while working with promises.
+
+// async functions always return a Promise.
+// await pauses execution until the Promise is resolved or rejected.
+// Improves readability compared to .then() and .catch() chaining.
+// Makes error handling simpler using try...catch.
+// Ideal for managing complex asynchronous flows in a structured way.
+
+// GET Requests (Retrieving Data)
+// using promise chaning
+
+fetch("https://jsonplaceholder.typicode.com/posts")
+  .then((response) => response.json())
+  .then((data) => console.log(data))
+  .catch((error) => console.error(error));
+
+// using async await
+
+const getUsers = async () => {
+  try {
+    const response = await fetch("/api/users");
+    const users = await response.json();
+    console.log(users);
+  } catch (error) {
+    console.error(error.message);
+  }
+};
+
+// into notebookLM notes if you need refrence
+
+// Important note :
+// Refer to the Eventr Loop explanation of geeksforgeeks
+
+// Try...catch
+
+const fetchUserData = async () => {
+  try {
+    const response = await fetch('/api/users');
+    
+    if (!response.ok) {
+      // Throw a custom error for non-200 HTTP statuses
+      throw new Error(`HTTP Error! Status: ${response.status}`);
+    }
+
+    const users = await response.json();
+    console.log("Users fetched successfully:", users);
+  } catch (error) {
+    // Handle error gracefully &amp; log details
+    console.error("Failed to fetch user data:", error.message);
+    showUserMessage("Unable to load profile. Please check your connection.");
+  } finally {
+    // Cleanup task: always runs whether succeeded or failed
+    hideLoadingSpinner();
+  }
+};
+
