@@ -2,7 +2,7 @@
 
 // const hobbies =[
 //     'gaming',
-//     'sports', 
+//     'sports',
 //     'traveling',
 //     'boxing',
 //     'manga',
@@ -19,7 +19,6 @@
 
 // document.write(`hello my name is ${name} and i am ${age} years old`)
 
-
 // const sayMyName =(name)  =>{
 //     console.log(`Your ${name}`)
 // };
@@ -27,7 +26,6 @@
 
 // let weight = prompt("How much do you wheigh :");
 // let gender = prompt("what gender are you");
-
 
 // function ValueWeight(weight , gender){
 //     if(gender == 'Male'){
@@ -44,13 +42,11 @@
 //     confirm("do you really want to delete this user");
 // }
 
-
 // let age = prompt("how old are you");
 
 // let message = (age > 0 )? "hello there": (age > 18)?"youre an adult":(age > 80 )?"you are really old": "fuck off" ;
 // alert(message);
 // alert( alert(1) || 2 || alert(3) );
-
 
 // const hobbies = ["football" , "swimming" , "dancing"];
 
@@ -69,10 +65,8 @@
 //     i++
 // } while (i <= hobbies.length -1);
 
-
 /*in this block of code we give our loop a label so that when we want to break from a bunch of nested loops 
 we break from the one that has a label*/
-
 
 // outer: for (let i = 0; i < 3; i++) {
 
@@ -98,7 +92,6 @@ we break from the one that has a label*/
 //     case "Friday":
 //         console.log("i love my life");
 //         break;
-
 
 //     default:
 //         console.log("the cycle keeps repeating");
@@ -132,13 +125,12 @@ we break from the one that has a label*/
 
 // showPrimes(60);
 
-
 // how we write objects
 const object1 = {
   id: 1,
   name: "hassan",
-  job: "software engineer"
-}
+  job: "software engineer",
+};
 
 // we can create objects this way too
 // put in mind we can use variable names like (var , let for , return , as a variable name ) but only inside objects
@@ -147,10 +139,9 @@ function makeUser(name, age) {
     // name : name,
     // age : age,
     name, // same as name: name
-    age,  // same as age: age
+    age, // same as age: age
   };
 }
-
 
 // let user1 = makeUser("mohammed" , 52);
 // console.log(user1);
@@ -206,8 +197,8 @@ function makeUser(name, age) {
 //   }
 // };
 
-// ladder.up().up().down().showStep().down().showStep(); 
-// /* in this code each function in the object returns the object through  
+// ladder.up().up().down().showStep().down().showStep();
+// /* in this code each function in the object returns the object through
 // this keyword wich enables method chaining*/
 
 // let data;
@@ -270,13 +261,10 @@ function makeUser(name, age) {
 //   return s[Math.floor(s.length / 2)];
 // }
 
-
 // console.log(getMiddle("middle"));
-
 
 // function solution(str) {
 //   let pairs = [];
-
 
 //   if (str.length % 2 == 0) {
 //     for (let i = 0; i < str.length; i += 2) {
@@ -331,7 +319,6 @@ function makeUser(name, age) {
 
 // console.log(dnaStrand("ATGCTAGCTAGCTAGCTAGCTA"));
 
-
 // function findNextSquare(sq) {
 //   // Return the next square if sq is a perfect square, -1 otherwise
 //   nextsr = (Math.sqrt(sq)) % 1 === 0 ? Math.pow((Math.sqrt(sq) +1) , 2) : false;
@@ -356,7 +343,6 @@ function makeUser(name, age) {
 // let a = 5;
 // increment(a);
 // console.log(a);
-
 
 // let name = "Mohammed";
 // console.log(name.toUpperCase());
@@ -392,8 +378,6 @@ function makeUser(name, age) {
 
 // alert(user.name);
 
-
-
 // Find the index of the first John
 // alert(users.findIndex(user => user.name == 'John')); // 0
 
@@ -406,8 +390,6 @@ function makeUser(name, age) {
 
 // let lengths = ["Bilbo", "Gandalf", "Nazgul"].map(item => item.length); // we use map to transform elements of an array
 // alert(lengths); // 5,7,6
-
-
 
 // binary search algorithm implementation
 // let arr = [1, 55, 88, 99, 102, 200, 451, 986];
@@ -434,20 +416,18 @@ function makeUser(name, age) {
 
 // console.log(BinarySearch(arr , target));
 
-
 // selection sort algorithm implementation
-const findsmallest = (liste) =>{
+const findsmallest = (liste) => {
   let smallest = liste[0];
   let smallest_index = 0;
   for (let i = 0; i < liste.length; i++) {
-    if(liste[i] < smallest){
+    if (liste[i] < smallest) {
       smallest = liste[i];
       smallest_index = i;
     }
-    
   }
   return smallest_index;
-}
+};
 
 const selectionSort = (liste) => {
   let newArr = [];
@@ -464,6 +444,23 @@ const selectionSort = (liste) => {
   return newArr;
 };
 
+console.log(selectionSort([2, 451, 986, 455, 88, 99, 102, 200]));
 
-console.log(selectionSort([2, 451, 986 , 455, 88, 99, 102, 200]))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
