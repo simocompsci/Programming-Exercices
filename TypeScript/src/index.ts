@@ -305,3 +305,20 @@ person4.greet("hello from typescript !!!")
 // attirbutes , TS merges them into one)
 // 4 - inetrfaces are more extensible
 // 5 - interfaces are recommended with apis and are genrally considered better for most use cases in dev
+
+
+
+// Classes and POO in TS (yeah you can look into that later)
+
+// Generics -> are a feature that allows you to write reusable code by passing types 
+// to other types whether its class , interface or function
+
+function returnType<T>(val: T): T{
+    return val;
+}
+
+const numValue: number = returnType<number>(20);
+const strValue: string = returnType<string>("victor");
+const boolValue: boolean = returnType<boolean>(false);
+
+// also deep dive into generics with multiple types
