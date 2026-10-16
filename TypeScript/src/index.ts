@@ -297,3 +297,11 @@ person4.greet("hello from typescript !!!")
 
 // Built in interfaces : are interfaces that are built and provided by TS/JS
 // eg: HtmlElement
+
+// Interfaces VS Type Aliases
+// 1 - they have different declaration syntax
+// 2 - interfaces can extand other classes , and can be implemented by other claasses unlike type aliases
+// 3 - interfaces support declaration merging ( when you declare interfaces with the same name but different 
+// attirbutes , TS merges them into one)
+// 4 - inetrfaces are more extensible
+// 5 - interfaces are recommended with apis and are genrally considered better for most use cases in dev
