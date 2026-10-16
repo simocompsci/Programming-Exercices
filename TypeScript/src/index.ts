@@ -285,3 +285,15 @@ const person4: PersonEX2 = {
 }
 
 person4.greet("hello from typescript !!!")
+
+
+// ReOpen the interface and use cases 
+// we can reopen interfaces in different files of our project and add nex attributes and 
+// functions to them , and create our object that contain all of the 
+// attributes and functions the interface now has (read more about this)
+
+// this is enables modular developement by giving different parts of the 
+// project the hand to contribute to building that interface
+
+// Built in interfaces : are interfaces that are built and provided by TS/JS
+// eg: HtmlElement
