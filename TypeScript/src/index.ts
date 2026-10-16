@@ -77,3 +77,57 @@ const width1: number = 50;
 const area: number = calculaterectangleArea(length1 , width1);
 console.log(area);
 
+// we can make function params either optional or have default values
+
+function greet(name: string , age?: number) {
+    if (age !== undefined) {
+        console.log("name : " + name + " age " + age);
+    } else {
+        console.log("name " + name)
+    }
+}
+
+greet("Alice" , 22);
+greet("Hassan");
+
+function greetDefault(name: string , age: number = 18) {
+    if (age !== undefined) {
+        console.log("name : " + name + " age " + age);
+    } else {
+        console.log("name " + name)
+    }
+}
+
+greetDefault("Alice" , 22);
+greetDefault("Hassan");
+
+
+// using rest parameter to pass whatever number of params we want
+
+function findAll(...nums: number[]): number{
+    let result = 0;
+    for (let index = 0; index < nums.length; index++) {
+        result += nums[index];
+    }
+    return result; 
+}
+
+console.log(findAll(1,5,4,88,96,77,5))
+
+// Arrow functions in typescript
+
+const addArrow = (num1: number , num2: number): number => num1 + num2;
+console.log(addArrow(10,20));
+
+// Anonymous functions used when you need a function only one time without creating a global one
+const add = function (num1: number , num2: number): number {
+    return num1 + num2;
+};
+
+console.log(add(10,12));
+
+// Void and Never
+
+// Void often used with functions that dont return any value
+
+// take a look into this never type
