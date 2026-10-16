@@ -209,3 +209,79 @@ const person3: CombinedType = {
     address: "4450 hay errahma",
     phone: "0623569988",
 }
+
+// type annotation with arrays
+
+let fruit: string[] = ["apple" , "bannana" , "orange"]; // can only take strings
+
+// type annotation with multi dim arrays
+
+let arrayOne : number[] = [1,4,5,5,66,99,7,11];
+let arraytwo : string[] = ["a" , "b" , "c"];
+let arrayThree : (string | number)[] = [1,2,3,"a","b","c"]
+
+let multiDimArray: number[][] = [[1,2,3],[4,5,6]];
+
+// tuple like the ones in python -> look into it more when needed
+// tuples are fixed in size and cant have additionnal elements
+
+let article: readonly [number , string , boolean] = [11 , "title one" , true];
+
+// assigning a new tuple value to the article variable
+article = [25 , "title two" , false];
+
+console.log(article)
+
+// Destructuring the tuple into individual variables
+
+const [id, title, published] = article;
+console.log(id);
+console.log(title);
+console.log(published);
+
+
+// Enums -> used to define a set of constant values 
+
+// enum Days {
+//     Sunday, 
+//     Monday,
+//     Tuesday,
+//     Wednesday,
+//     Thursday,
+//     friday,
+//     Saturday,
+// }
+
+// const today: Days = Days.Saturday;
+// console.log(Days[today]);
+
+
+// Interfaces in TS
+// later you have to see the difference between type and interface
+interface PersonEX {
+    name: string;
+    age: number;
+}
+
+const jhon: PersonEX = {
+    name: "jhon",
+    age: 25
+}
+
+// interface methods and prameters
+
+interface PersonEX2 {
+    name: string;
+    age: number;
+    greet(message: string): void;
+}
+
+const person4: PersonEX2 = {
+    name: "hassan",
+    age: 45,
+    greet(message) {
+        console.log(`${this.name} says: ${message}`)
+    },
+}
+
+person4.greet("hello from typescript !!!")
