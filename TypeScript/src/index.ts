@@ -131,3 +131,81 @@ console.log(add(10,12));
 // Void often used with functions that dont return any value
 
 // take a look into this never type
+
+// Advanced Types
+
+// Union Types : a variable that s annotated with union type means 
+// that this variable can hold values of many types
+
+let myVar :number | string;
+
+
+myVar = 24 ; 
+console.log(myVar);
+myVar = "momo";
+console.log(myVar);
+
+
+// literal Types used to specify an exact type (value that a variable can take)
+// can be useful when you want to be explicit with the values that your variable can accept
+let direction: "left" | "right" | "up" | "down";
+direction = "right";
+console.log(direction)
+
+// Nullable Types in TS allow a variable to accept nullable values
+// useful when working with data that might not be existing or not initialized
+let username: string | null = "glisher"; // can hold string or null
+let ageEx: number | null = null; // can hold string or null
+
+// Type Alias used to define custom types
+
+type MyString = string;
+
+let myName : MyString = "hassan";
+
+type MyStringOrNumber = string | number;
+
+let myValue : MyStringOrNumber = 55;
+
+
+type Employee = {
+    name : string;
+    age : number; 
+    email? : string;
+};
+
+const alice: Employee = {
+    name : "alice",
+    age: 22,
+}
+
+const bob: Employee = {
+    name : "bob",
+    age: 55,
+    email: "bobo@gmail.com"
+}
+
+console.log(alice)
+console.log(bob)
+
+
+// Intersection Type allows you to combine multiple types into one
+
+type FirstType = {
+    name: string;
+    age: number;
+};
+
+type SecondType = {
+    address: string;
+    phone: string;
+}
+
+type CombinedType = FirstType & SecondType;
+
+const person3: CombinedType = {
+    name : "jhon doe",
+    age: 55,
+    address: "4450 hay errahma",
+    phone: "0623569988",
+}
