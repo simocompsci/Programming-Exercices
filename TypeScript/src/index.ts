@@ -322,3 +322,5 @@ const strValue: string = returnType<string>("victor");
 const boolValue: boolean = returnType<boolean>(false);
 
 // also deep dive into generics with multiple types
+
+// take a look into generics with classes and generics with interfaces
